@@ -1,0 +1,39 @@
+# //  ModelSim SE-64 10.2c Jul 18 2013 Linux 3.2.0-4-amd64
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim lib_BENCH.regbench
+# vsim lib_BENCH.regbench 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: [1] regfile_bench.vhd(66): (vopt-3473) Component instance "/regBench/reg1 : regfile" is not bound.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.regbench(arch)#1
+# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
+add wave -position insertpoint sim:/regbench/*
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run -all
+# Break key hit 
+# Simulation stop requested.
+restart -f
+# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run -all
+# Break key hit 
+# Simulation stop requested.
+restart -f
+# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run -all
+run -all
+# Break key hit 
+# Simulation stop requested.

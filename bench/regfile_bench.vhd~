@@ -37,7 +37,7 @@ architecture arch of regBench is
 begin  -- architecture arch
 
   sigClk <= not(sigClk) after 10 ns;
-  rst <= '1' after 45 ns;
+  sigrst <= '1' after 45 ns;
 
   sigCodeInstRead <= "00000001111111110000100100000000";  -- rs1=30, rs2=31
   sigCodeInstWrite <= "00000000000000000000101010000000"; -- rd=21
@@ -47,7 +47,7 @@ begin  -- architecture arch
   sigDataIn <=  "10101010101010101010101010101010";
   
                 
-  reg1: entity work.addit
-  port map (sigCodeInstRead, sigCodeInstWrite, sigReqRead1, sigReqRead2, sigReqWrite, sigDataIn, sigDataOut1, sigDataOut2, sigRst, sigClk)
+  reg1: entity regFile
+  port map (sigCodeInstRead, sigCodeInstWrite, sigReqRead1, sigReqRead2, sigReqWrite, sigDataIn, sigDataOut1, sigDataOut2, sigRst, sigClk);
 
 end architecture arch;
