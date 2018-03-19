@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------
+-- Title      : Regiter file bench
+-- Project    : 
+-------------------------------------------------------------------------------
+-- File       : regfile_bench.vhd
+-- Author     :   <antoine@localhost>
+-- Company    : 
+-- Created    : 2018-03-15
+-- Last update: 2018-03-15
+-- Platform   : 
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description: Testfile for regfile
+-------------------------------------------------------------------------------
+-- Copyright (c) 2018 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2018-03-15  1.0      antoine	Created
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity regBench is
+end entity regBench;
+
+architecture arch of regBench is
+
+  signal sigCodeInstRead,sigCodeInstWrite : std_logic_vector(31 downto 0);
+  signal sigReqRead1, sigReqRead2, sigReqWrite : std_logic;
+  signal sigDataIn, sigDataOut1, sigDataOut2 : std_logic_vector(31 downto 0);
+  signal sigRst: std_logic :='0';
+  signal sigClk: std_logic :='0';
+  
+begin  -- architecture arch
+
+  sigClk <= not(sigClk) after 10 ns;
+  rst <= '1' after 45 ns;
+
+  sigCodeInstRead <= "00000001111111110000100100000000";  -- rs1=30, rs2=31
+  sigCodeInstWrite <= "00000000000000000000101010000000"; -- rd=21
+  sigReqRead1 <= '1';
+  sigReqRead2 <= '1';
+  sigReqWrite <= '1';
+  sigDataIn <=  "10101010101010101010101010101010";
+  
+                
+  reg1: entity work.addit
+  port map (sigCodeInstRead, sigCodeInstWrite, sigReqRead1, sigReqRead2, sigReqWrite, sigDataIn, sigDataOut1, sigDataOut2, sigRst, sigClk)
+
+end architecture arch;
