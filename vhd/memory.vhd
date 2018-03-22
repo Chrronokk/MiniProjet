@@ -28,12 +28,46 @@ entity memory is
       comb: process (read_write,data_in,ex,sign) is
           begin  -- process comb
         data_out <= (others => '0');        
-        if read_write = '1' then
+        if read_write = '1' then -- lecture
           if ex = "01" then
             if sign='0' then
-              data_out(7 downto 0) <= memory(to_integer(unsiged(adresse))(7 downto 0);
+                  data_out(7 downto 0) <= memory(to_integer(unsiged(adresse))(7 downto 0);
+            else
+                  data_out(31)<= memory(to_integer(unsiged(adresse))(7);
+                  data_out(6 downto 0) <= memory(to_integer(unsiged(adresse))(6 downto 0);
             end if;
+          elsif ex = "10" then
+            if sign='0' then
+                  data_out(15 downto 0) <= memory(to_integer(unsiged(adresse))(15 downto 0);
+            else
+                  data_out(31)<= memory(to_integer(unsiged(adresse))(15);
+                  data_out(14 downto 0) <= memory(to_integer(unsiged(adresse))(14 downto 0);
+            end if;
+          else
+            data_out<=memory(to_integer(unsiged(adresse));           
           end if;
+
+
+
+          else --ecriture
+            if ex = "01" then
+              if sign='0' then
+                  memory(to_integer(unsiged(adresse))(7 downto 0) <= data_in(7 downto 0) ;
+            else
+                  memory(to_integer(unsiged(adresse))(31) <= data_in(7) ;
+                  memory(to_integer(unsiged(adresse))(6 downto 0) <= data_in(6 downto 0) ;
+            end if;
+          elsif ex = "10" then
+            if sign='0' then
+                  memory(to_integer(unsiged(adresse))(15 downto 0) <= data_in(15 downto 0) ;
+            else
+                  memory(to_integer(unsiged(adresse))(31) <= data_in(15) ;
+                  memory(to_integer(unsiged(adresse))(14 downto 0) <= data_in(14 downto 0) ;
+            end if;
+          else
+                  memory(to_integer(unsiged(adresse)) <= data_in ;
+          end if;
+                    
         end if;
       end process comb;
 
