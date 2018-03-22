@@ -9,49 +9,58 @@ Z0 d/tp/xph2sei/xph2sei409/MiniProjet/bench
 !i10e 25
 !i10f 100
 T_opt
-!s110 1521472829
 VLT19T[^Aj_Q@mSLBHBWhz1
-04 8 4 work regbench arch 1
+Z1 04 8 4 work regbench arch 1
 =13-0023ae91a18d-5aafd53c-de0dd-2dbe
-o-quiet -auto_acc_if_foreign -work lib_BENCH
+Z2 o-quiet -auto_acc_if_foreign -work lib_BENCH
 n@_opt
-OL;O;10.2c;57
-Eregbench
-Z1 w1521472820
-Z2 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
-Z3 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+Z3 OL;O;10.2c;57
 Z4 d/tp/xph2sei/xph2sei409/MiniProjet/bench
-Z5 8regfile_bench.vhd
-Z6 Fregfile_bench.vhd
+!s110 1521472829
+T_opt1
+!s110 1521706037
+Vj7KI73;l2z]Of68F>Fe:g2
+R1
+=2-bc305b9b298f-5ab36435-b75f0-279f
+R2
+n@_opt1
+R3
+Eregbench
+Z5 w1521706022
+Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R4
+Z8 8regfile_bench.vhd
+Z9 Fregfile_bench.vhd
 l0
 L28
 VX7<NZEc@;@`DGk?:]NaY33
-Z7 OL;C;10.2c;57
+Z10 OL;C;10.2c;57
 32
-Z8 !s110 1521472822
-Z9 !s108 1521472822.154616
-Z10 !s90 +acc|-work|lib_BENCH|regfile_bench.vhd|
-Z11 !s107 regfile_bench.vhd|
-Z12 o+acc -work lib_BENCH
-Z13 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+Z11 !s110 1521706029
+Z12 !s108 1521706029.844585
+Z13 !s90 +acc|-work|lib_BENCH|regfile_bench.vhd|
+Z14 !s107 regfile_bench.vhd|
+Z15 o+acc -work lib_BENCH
+Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
 !s100 9a2eX0agmJA0E9JX>LVOR2
 !i10b 1
 !i111 0
 Aarch
-R2
-R3
+R6
+R7
 DEx4 work 8 regbench 0 22 X7<NZEc@;@`DGk?:]NaY33
 l54
 L31
-VDYM5Z=;gCO@[lYj3YB?7_3
-R7
-32
-R8
-R9
+V0GOELXMWFW9]G_fg]cQ>Y1
 R10
+32
 R11
 R12
 R13
-!s100 ^2`<1VH4CPR<6k=eXI[@=1
+R14
+R15
+R16
+!s100 8h?Qk05bGKZmm71Rz?G8i2
 !i10b 1
 !i111 0

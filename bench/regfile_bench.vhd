@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-15
--- Last update: 2018-03-19
+-- Last update: 2018-03-22
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -81,13 +81,13 @@ begin  -- architecture arch
     sigReqWrite      <= '0';
     sigDataIn        <= X"AAAAAAAA";
 
-    wait for 20 ns;
+    wait for 10 ns;
 
     sigRst <= '1';
     
     wait for 20 ns;
 
-    sigReqWrite <= '1';                                                -- On "ecrit AAA sur r21"
+    sigReqWrite <= '1';                                                -- On ecrit AAA sur r21
 
     wait for 20 ns;
 
@@ -98,12 +98,18 @@ begin  -- architecture arch
     sigReqWrite <= '1';
     sigCodeInstWrite <= "00000000000000000000100100000000";  --rd=18
     sigDataIn <= X"BBBBBBBB";                                         --On ecrit BBB sur r18
+
+    wait for 20 ns;
+
+    sigReqWrite <= '1';
+    sigCodeInstWrite <= "00000000000000000000000000000000";  --rd=18
+    sigDataIn <= X"55555555";                                          --Tentative d'écriture sur r0
     
 
     wait for 20 ns;
 
-    sigCodeInstWrite <= "00000000000000000000000100000000";  --rd=2
-    sigDataIn <= X"CCCCCCCC";
+    sigCodeInstWrite <= "00000000000000000000000100000000";  --rd=2 
+    sigDataIn <= X"CCCCCCCC";                                           --On ecrit CCC sur r2
 
     sigReqRead1 <= '1';
     sigReqRead2 <= '1';
