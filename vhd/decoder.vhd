@@ -66,9 +66,15 @@ architecture arch of decoder is
 
   --Memory control signals
   signal mem_access : std_logic;        -- Requests an access to the memory
+<<<<<<< HEAD
   signal memRW      : std_logic;        -- 0 for Read / 1 for Write
   signal memSize    : std_logic_vector(1 downto 0);  -- Size of the memory access
   signal memSign    : std_logic;        -- 0 if unsigned, 1 if signed
+=======
+  signal memRW : std_logic;             -- 0 for Read / 1 for Write
+  signal memSize : std_logic_vector(1 downto 0);  -- Size of the memory access
+  signal memSign : std_logic;           -- 0 if unsigned, 1 if signed
+>>>>>>> 62e4c8b9a1d8c4ce7d06f4d1ec2809a3153de4b3
 
 
   --Unclassified control signals
@@ -110,10 +116,17 @@ begin  -- architecture str
 
            --Memory
            mem_access <= '0';
+<<<<<<< HEAD
            memRW      <= '0';
            memSize    <= "01";
            memSign    <= '1';
 
+=======
+           memRW <= '0';
+           memSize <= "01";
+           memSign <= '1';
+           
+>>>>>>> 62e4c8b9a1d8c4ce7d06f4d1ec2809a3153de4b3
            --Others
            aluE1Sel <= "011";
            aluE2Sel <= "00";
