@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-03-22
+-- Last update: 2018-03-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,6 +59,7 @@ architecture arch of decoder is
   signal mem_access : std_logic;        -- Requests an access to the memory
   signal memRW : std_logic;             -- 0 for Read / 1 for Write
   signal memSize : std_logic_vector(1 downto 0);  -- Size of the memory access
+  signal memSign : std_logic;           -- 0 if unsigned, 1 if signed
 
 
   --Unclassified control signals
@@ -91,6 +92,7 @@ begin  -- architecture str
            mem_access <= '0';
            memRW <= '0';
            memSize <= "01";
+           memSign <= '1';
            
            --Others
            aluE1Sel <= "011";
@@ -148,8 +150,10 @@ begin  -- architecture str
                  when "010" =>          --LW
                    memSize <= "11"
                  when "100" =>          --LBU
+                   memSign <= '0';
                  when "101" =>          --LHU
                    memSize <= "10";
+                   memSign <= '0';
                end case;
                
              when "0100011" =>          --Store type
