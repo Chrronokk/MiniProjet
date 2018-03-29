@@ -5,17 +5,16 @@ use ieee.numeric_std.all;
 library lib_VHDL;
 use lib_VHDL.all;
 
-entity Tb_alu is
-end Tb_alu;
+entity Tb_adder is
+end Tb_adder;
 
-architecture behavior of Tb_alu is
+architecture behavior of Tb_adder is
 
   -- Component Declaration for the Unit Under Test (UUT)
   
-  component alu
+  component adder
     port(
       a, b   : in  std_logic_vector(31 downto 0);
-      sel    : in  std_logic_vector(3 downto 0);
       sortie : out std_logic_vector(31 downto 0)
       );
   end component;

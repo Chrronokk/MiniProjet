@@ -7,40 +7,25 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.regbench
-# vsim lib_BENCH.regbench 
+vsim lib_BENCH.tb_adder
+# vsim lib_BENCH.tb_adder 
 # ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: [1] adder_bench.vhd(37): (vopt-3473) Component instance "/Tb_adder/adder_bench : adder" is not bound.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
 # Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-add wave -position insertpoint sim:/regbench/*
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 220 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 122
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 210 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 122
-add dataflow  \
-sim:/regbench/sigClk
+# Loading work.tb_adder(behavior)#1
+# ** Warning: (vsim-3473) Component instance "adder_bench : adder" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_adder File: adder_bench.vhd
 add wave -position insertpoint  \
-sim:/regbench/reg1/regArray
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 420 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 122
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+sim:/tb_adder/sigpc \
+sim:/tb_adder/sigjump \
+sim:/tb_adder/sigs
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+restart
+# ** Warning: (vsim-3473) Component instance "adder_bench : adder" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_adder File: adder_bench.vhd
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# Causality operation skipped due to absence of debug database file
