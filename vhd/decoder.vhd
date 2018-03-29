@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-03-19
+-- Last update: 2018-03-22
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -160,21 +160,3 @@ begin
 
     end case;
 end process decode;
-
-
--- purpose: generates a synchronous output from the decoder
--- type   : sequential
--- inputs : clk, rst
--- outputs: many control signals
-sync_out: process (clk, rst) is --Rajouter signaux de controle combi dans sensi
-begin  -- process output
-  if rst = '0' then                     -- asynchronous reset (active low)
-    
-  elsif clk'event and clk = '1' then    -- rising clock edge
-    
-  end if;
-end process output;
-
-end architecture str;
-
--------------------------------------------------------------------------------
