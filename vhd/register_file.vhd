@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2018-03-15
+-- Last update: 2018-03-22
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -83,10 +83,10 @@ begin  -- architecture A
       else
         dataOut2 <= zero;
       end if;
-      if reqWrite='1' then
+      if reqWrite='1' and regSelWrite /= "00000" then 
         regArray(to_integer(unsigned(regSelWrite))) <= dataIn;
       else
-           regArray(to_integer(unsigned(regSelWrite))) <=  regArray(to_integer(unsigned(regSelWrite)));
+        regArray(to_integer(unsigned(regSelWrite))) <=  regArray(to_integer(unsigned(regSelWrite)));
       end if;
     end if;
   end process regIO;

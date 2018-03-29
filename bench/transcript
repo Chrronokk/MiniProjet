@@ -9,169 +9,19 @@
 # //
 vsim lib_BENCH.regbench
 # vsim lib_BENCH.regbench 
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.regbench(arch)#1
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: regfile_bench.vhd
+# Loading ieee.numeric_std(body)
+# Loading lib_vhdl.regfile(a)#1
 add wave -position insertpoint sim:/regbench/*
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: [1] regfile_bench.vhd(58): (vopt-3473) Component instance "/regBench/reg1 : regfile" is not bound.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: regfile_bench.vhd
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 20 ns  Iteration: 0  Process: /regbench/line__61 File: regfile_bench.vhd
-# Break in Process line__61 at regfile_bench.vhd line 74
-restart -f
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: regfile_bench.vhd
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 20 ns  Iteration: 0  Process: /regbench/line__61 File: regfile_bench.vhd
-# Break in Process line__61 at regfile_bench.vhd line 74
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 40 ns  Iteration: 0  Process: /regbench/line__61 File: regfile_bench.vhd
-# Break in Process line__61 at regfile_bench.vhd line 74
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: [1] regfile_bench.vhd(58): (vopt-3473) Component instance "/regBench/reg1 : regfile" is not bound.
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: regfile_bench.vhd
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 120 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 78
-vsim lib_BENCH.regbench
-# vsim lib_BENCH.regbench 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: regfile_bench.vhd
-restart
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-run
-# ** Failure: Simulation Finished Successfully
-#    Time: 120 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 80
-add wave sim:/regbench/*
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-restart
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation Finished Successfully
-#    Time: 120 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 80
-add wave -position end  sim:/regbench/reg1/regArray
-restart
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation Finished Successfully
-#    Time: 120 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 80
-# Causality operation skipped due to absence of debug database file
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-# Break key hit 
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 140 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 83
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run -all
 # ** Failure: Simulation Finished Successfully
 #    Time: 220 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
+# Break in Process simulation at regfile_bench.vhd line 122
 restart -f
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
@@ -183,19 +33,14 @@ restart -f
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run -all
 # ** Failure: Simulation Finished Successfully
-#    Time: 180 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 103
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# Loading ieee.numeric_std(body)
-# Loading lib_vhdl.regfile(a)#1
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-# Load canceled
+#    Time: 210 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
+# Break in Process simulation at regfile_bench.vhd line 122
+add dataflow  \
+sim:/regbench/sigClk
+add wave -position insertpoint  \
+sim:/regbench/reg1/regArray
 run -all
 # ** Failure: Simulation Finished Successfully
-#    Time: 200 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
-# Break in Process simulation at regfile_bench.vhd line 116
+#    Time: 420 ns  Iteration: 0  Process: /regbench/simulation File: regfile_bench.vhd
+# Break in Process simulation at regfile_bench.vhd line 122
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
