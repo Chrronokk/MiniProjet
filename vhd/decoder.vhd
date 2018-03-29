@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-03-22
+-- Last update: 2018-03-29
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,6 +59,7 @@ architecture arch of decoder is
   signal mem_access : std_logic;        -- Requests an access to the memory
   signal memRW : std_logic;             -- 0 for Read / 1 for Write
   signal memSize : std_logic_vector(1 downto 0);  -- Size of the memory access
+  signal memSign : std_logic;           -- 0 if unsigned, 1 if signed
 
 
   --Unclassified control signals
@@ -68,88 +69,7 @@ architecture arch of decoder is
 begin  -- architecture str
 
 
- 
-<<<<<<< HEAD
-    when "1101111" =>     --JAL
-          aluSel <= "0000";
-    when "1100111" =>     --JALR
-          aluSel <= "0000";
-    when "0110111" =>     --LUI
-          aluSel <= "0000";
-    when "0010111" =>     --AUIPC
-          aluSel <= "0001";
-    when "0000011" =>     --Load type
-          aluSel <= "0001";
-        case func3 is
-            when "000" =>   --LB
-            when "001" =>   --LH
-            when "010" =>   --LW
-            when "100" =>   --LBU
-            when "101" =>   --LHU
-        end case;
-          
-    when "0100011" =>     --Store type
-          aluSel <= "0001";
-        case func3 is
-            when "000" =>   -- SB
-            when "001" =>   -- SH
-            when "010" =>   -- SW
-         end case;
-         
-    when "0010011" =>     --I_imm type
-        case func3 is
-            when "000" =>   -- ADDI
-              aluSel <= "0001";
-            when "001" =>   -- SLLI
-              aluSel <= "0110";
-            when "010" =>   -- SLTI
-              aluSel <= "1011";
-            when "011" =>   -- SLTIU
-              aluSel <= "1101";
-            when "100" =>   -- XORI
-              aluSel <= "0101";
-            when "101" =>
-              if code(30)='0' then  --SRLI
-                aluSel <= "0111";
-              else                  --SRAI
-                aluSel <= "1000";
-              end if;
-              
-            when "110" =>   -- ORI
-              aluSel <= "0100";
-            when "111" =>   -- ANDI
-              aluSel <= "0011";
-    when "0110011" =>     --Register type
-        case func3 is
-           when "000" =>
-             if code(30)='0' then --ADD
-               aluSel <= "0001";
-             else --SUB
-               aluSel <= "0010";
-             end if;
-           when "001" =>    --SLL
-             aluSel <= "0110";
-           when "010" =>    --SLT
-             aluSel <= "1011";
-           when "011" =>    --SLTU
-             aluSel <= "1101";
-           when "100" =>    --XOR
-             aluSel <= "0101";
-           when "101" =>
-             if code(30)='0' then --SRL
-               aluSel <= "0111";
-             else                 --SRA
-               aluSel <= "1000";
-             end if;
-           when "110" =>    --OR
-             aluSel <= "0100";
-           when "111" =>    --AND
-             aluSel <= "0011";
-      -- Rajouter les syscall
 
-    end case;
-end process decode;
-=======
   opcode <= code(6 downto 0);
   func3  <= code(14 downto 12);
 
@@ -172,6 +92,7 @@ end process decode;
            mem_access <= '0';
            memRW <= '0';
            memSize <= "01";
+           memSign <= '1';
            
            --Others
            aluE1Sel <= "011";
@@ -229,8 +150,10 @@ end process decode;
                  when "010" =>          --LW
                    memSize <= "11"
                  when "100" =>          --LBU
+                   memSign <= '0';
                  when "101" =>          --LHU
                    memSize <= "10";
+                   memSign <= '0';
                end case;
                
              when "0100011" =>          --Store type

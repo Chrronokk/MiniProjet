@@ -19,15 +19,15 @@ begin  -- architecture Arch
   -- purpose: calcul de la sortie
   -- type   : combinational
   -- inputs : a,b
-  -- outputs: s
-  comb: process (A,B,sel) is
-  sortie <= (others => '0');                     
+  -- outputs: sortie
+  comb: process (a,b,sel) is
   begin  -- process comb
+  sortie <= (others => '0');                     
     case sel is
       when "0001" =>
-        sortie <= a+b; --addition
+        sortie <= std_logic_vector(unsigned(a)+unsigned(b)); --addition
       when "0010" =>
-        sortie <= a-b; --soustraction
+        sortie <= std_logic_vector(unsigned(a)-unsigned(b)); --soustraction
       when "0011" =>
         sortie <= a and b; --et logique
       when "0100" =>
@@ -35,12 +35,12 @@ begin  -- architecture Arch
       when "0101" =>
         sortie <= a xor b; -- ou exclusif logique
       when "0110" =>
-        sortie(31 downto unsigned(b(4 downto 0))) <= a((31-unsigned(b(4 downto 0))) downto 0); -- décalage à gauche logique
+        sortie(31 downto to_integer(unsigned(b(4 downto 0)))) <= a((31-to_integer(unsigned(b(4 downto 0))) downto 0)); -- décalage à gauche logique
       when "0111" =>
-        sortie((31-unsigned(b(4 downto 0))) downto 0) <= a(31 downto unsigned(b(4 downto 0)); -- décalage à droite logique
+        sortie((31-to_integer(unsigned(b(4 downto 0))) downto 0) <= a(31 downto to_integer(unsigned(b(4 downto 0)))); -- décalage à droite logique
       when "1000" =>
         sortie(31) <= a(31);
-        sortie((30-unsigned(b(4 downto 0))) downto 0) <= a(31 downto unsigned(b(4 downto 0)); --décalage à droite arithmétique 
+        sortie((30-to_integer(unsigned(b(4 downto 0)))) downto 0) <= a(31 downto to_integer(unsigned(b(4 downto 0)))); --décalage à droite arithmétique 
       when "1001" =>
         if(a=b) then
           sortie(0) <= '1';
