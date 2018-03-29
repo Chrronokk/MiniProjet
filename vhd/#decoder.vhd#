@@ -42,14 +42,12 @@ architecture arch of decoder is
 
 
   --Internal signals
-  signal opcode       : std_logic_vector(6 downto 0);
-  signal func3        : std_logic_vector(2 downto 0);
-  signal jumpType     : std_logic;
-  signal branchType   : std_logic;
-  signal loadType     : std_logic;
-  signal loadTypePrev : std_logic;
-  signal branchCount  : integer;
-  signal unreadable   : std_logic_vector(4 downto 0);
+  signal opcode      : std_logic_vector(6 downto 0);
+  signal func3       : std_logic_vector(2 downto 0);
+  signal jumpType    : std_logic;
+  signal branchType  : std_logic;
+  signal loadType    : std_logic;
+  signal bubbleCount : integer;
 
 
   --ALU control signals
@@ -122,74 +120,74 @@ begin  -- architecture str
 
            case opcode is
 
-             when "1100011" =>          --Branch type
+             when "1100011" =>             --Branch type
                reqWrite   <= '0';
                branchType <= '1';
                case func3 is
-                 when "000" =>          --BEQ
+                 when "000" =>             --BEQ
                    aluSel <= "1001";
-                 when "001" =>          --BNE
+                 when "001" =>             --BNE
                    aluSel <= "1001";
-                 when "100" =>          --BLT
+                 when "100" =>             --BLT
                    aluSel <= "1011";
-                 when "101" =>          --BGE
+                 when "101" =>             --BGE
                    aluSel <= "1010";
-                 when "110" =>          --BLTU
+                 when "110" =>             --BLTU
                    aluSel <= "1101";
-                 when "111" =>          --BGEU
+                 when "111" =>             --BGEU
                    aluSel <= "1100";
                end case;
                
-             when "1101111" =>          --JAL
+             when "1101111" =>             --JAL
                jumpType <= '1';
                aluSel   <= "0000";
                reqRead1 <= '0';
                reqRead2 <= '0';
                aluE1Sel <= "010";
-             when "1100111" =>          --JALR
+             when "1100111" =>             --JALR
                jumpType <= '1';
                aluSel   <= "0000";
                reqRead2 <= '0';
                aluE1Sel <= "010";
-             when "0110111" =>          --LUI
+             when "0110111" =>             --LUI
                aluSel   <= "0000";
                reqRead1 <= '0';
                reqRead2 <= '0';
                aluE2Sel <= "01";
-             when "0010111" =>          --AUIPC
+             when "0010111" =>             --AUIPC
                reqRead1 <= '0';
                reqRead2 <= '0';
                aluE1Sel <= "001";
                aluE2Sel <= "01";
                
-             when "0000011" =>          --Load type
+             when "0000011" =>             --Load type
                LoadType   <= '1';
                reqRead2   <= '0';
                aluE1Sel   <= "101";
                mem_access <= '1';
                case func3 is
-                 when "000" =>          --LB
-                 when "001" =>          --LH
+                 when "000" =>             --LB
+                 when "001" =>             --LH
                    memSize <= "10";
-                 when "010" =>          --LW
+                 when "010" =>             --LW
                    memSize <= "11";
-                 when "100" =>          --LBU
+                 when "100" =>             --LBU
                    memSign <= '0';
-                 when "101" =>          --LHU
+                 when "101" =>             --LHU
                    memSize <= "10";
                    memSign <= '0';
                end case;
                
-             when "0100011" =>          --Store type
+             when "0100011" =>             --Store type
                reqWrite   <= '0';
                aluE1Sel   <= "100";
                mem_access <= '1';
                memRW      <= '1';
                case func3 is
-                 when "000" =>          -- SB
-                 when "001" =>          -- SH
+                 when "000" =>             -- SB
+                 when "001" =>             -- SH
                    memSize <= "10";
-                 when "010" =>          -- SW
+                 when "010" =>             -- SW
                    memSize <= "11";
                end case;
                
@@ -274,27 +272,10 @@ begin  -- architecture str
                      else
                        bubbleCount <= 0;
                      end if;
-                     --Reading an unreadable register
-                     if rs1 = unreadable or rs2 = unreadable then
-                       bubbleCount <= 1;
-                     else
-                       bubbleCount <= 0;
-                     end if;
+                   --
+                   --TODO: Other bubble issues
+                   --
                    end process bubbleGen;
-
-                     -- purpose: Detects when a register can't be read
-                     -- type   : sequential
-                     -- inputs : clk, rst
-                     -- outputs: 
-                     unreadable : process (clk, rst) is
-                     begin  -- process unreadable
-                       if rst = '0' then  -- asynchronous reset (active low)
-
-                       elsif clk'event and clk = '1' then  -- rising clock edge
-
-                       end if;
-                     end process unreadable;
-
 
 
                      -- purpose: Send control signals to bypasses
@@ -306,7 +287,20 @@ begin  -- architecture str
                        if rst = '0' then  -- asynchronous reset (active low)
 
                        elsif clk'event and clk = '1' then  -- rising clock edge
+                         prev_write_2 <= prev_write_1;
+                         prev_write_1 <= rd;
 
+                         if rs1 = prev_write_1 or rs2 = prev_write_1 then
+                           bp1e <= '1';
+                         else
+                           bp1e <= '0';
+                         end if;
+                         if rs1 = prev_write_2 or rs2 = prev_write_2 then
+                           bp2e <= '1';
+                         else
+                           bp2e <= '0';
+                         end if;
+                         
                        end if;
                      end process bypass_command;
                    end arch;
