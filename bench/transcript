@@ -7,25 +7,33 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.tb_adder
-# vsim lib_BENCH.tb_adder 
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: [1] adder_bench.vhd(37): (vopt-3473) Component instance "/Tb_adder/adder_bench : adder" is not bound.
+vsim lib_BENCH.tb_memory
+# vsim lib_BENCH.tb_memory 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.tb_adder(behavior)#1
-# ** Warning: (vsim-3473) Component instance "adder_bench : adder" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /tb_adder File: adder_bench.vhd
+# Loading work.tb_memory(a)#1
+# Loading lib_vhdl.memoire(a)#1
 add wave -position insertpoint  \
-sim:/tb_adder/sigpc \
-sim:/tb_adder/sigjump \
-sim:/tb_adder/sigs
+sim:/tb_memory/Tb_memory/memory
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+add wave -position insertpoint  \
+sim:/tb_memory/sig_rst \
+sim:/tb_memory/sig_access \
+sim:/tb_memory/sig_rw \
+sim:/tb_memory/sig_adresse \
+sim:/tb_memory/sig_in \
+sim:/tb_memory/sig_size \
+sim:/tb_memory/sig_sign \
+sim:/tb_memory/sig_out
+run
+run
+run
 restart
-# ** Warning: (vsim-3473) Component instance "adder_bench : adder" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /tb_adder File: adder_bench.vhd
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+restart
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run
 # Causality operation skipped due to absence of debug database file
