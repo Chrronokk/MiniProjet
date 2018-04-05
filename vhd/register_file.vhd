@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2018-03-22
+-- Last update: 2018-04-05
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ entity regFile is
 end entity regFile;
 
 architecture A of regFile is
-constant zero : std_logic_vector(31 downto 0) := "00000000000000000000000000000000";  -- <[comment]>
+constant zero : std_logic_vector(31 downto 0) := "00000000000000000000000000000000";
   type B32_array is array (0 to 31) of std_logic_vector (31 downto 0);
   signal regArray : B32_array;
 
