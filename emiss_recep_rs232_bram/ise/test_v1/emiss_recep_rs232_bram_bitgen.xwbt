@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.ncd
+OUTFILE=/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.bit
+FAMILY=Zynq
+PART=xc7z020-3clg484
+WORKINGDIR=/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1
+LICENSE=ISE
+USER_INFO=174170201_174170202_210646199_166

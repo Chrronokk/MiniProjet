@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/synth/timing/recep_rs232_vhd_tst_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bram_16x8
+INFO: [VRFC 10-311] analyzing module emiss_recep_rs232_bram
+INFO: [VRFC 10-311] analyzing module emiss_rs232
+INFO: [VRFC 10-311] analyzing module recep_rs232
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_generic_cstr
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_prim_width
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_prim_wrapper_init
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_top
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_v8_3_6
+INFO: [VRFC 10-311] analyzing module bram_16x8__blk_mem_gen_v8_3_6_synth
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vhd/recep_rs232.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity recep_rs232
+INFO: [VRFC 10-163] Analyzing VHDL file "/cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vhd/recep_rs232_bench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity recep_rs232_vhd_tst

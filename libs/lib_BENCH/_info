@@ -18,51 +18,58 @@ Z2 OL;O;10.2c;57
 Z3 d/tp/xph2sei/xph2sei409/MiniProjet/bench
 !s110 1521472829
 T_opt1
-!s110 1522920097
 VB7HZ5;7LOFZ8e[?K<iTjQ3
 04 9 1 work tb_memory a 1
 =1-bc305b9b298f-5ac5eaa1-923a9-3e4b
 R1
 n@_opt1
 R2
-Etb_memory
-Z4 w1522920061
-Z5 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
-Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
-Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 R3
-Z8 8memory_bench.vhd
-Z9 Fmemory_bench.vhd
+!s110 1522920097
+T_opt2
+!s110 1523627783
+VQF3[DBSK?7DdM6QCN0=DO1
+04 12 4 work decoderbench arch 1
+=4-bc305b9b298f-5ad0b707-89a3a-74cb
+R1
+n@_opt2
+R2
+Edecoderbench
+Z4 w1523627765
+Z5 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z6 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R3
+Z7 8decoder_bench.vhd
+Z8 Fdecoder_bench.vhd
 l0
-L8
-V^lV[WnJF6XQHdU;_dG_ok3
-Z10 OL;C;10.2c;57
+L28
+V0a<C^E?e:me=10GUWDJc72
+Z9 OL;C;10.2c;57
 32
-Z11 !s110 1522920073
-Z12 !s108 1522920073.469708
-Z13 !s90 +acc|-work|lib_BENCH|memory_bench.vhd|
-Z14 !s107 memory_bench.vhd|
-Z15 o+acc -work lib_BENCH
-Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
-!s100 jGE22f^lJ>]A:<==]YMX<3
+Z10 !s110 1523627779
+Z11 !s108 1523627779.117623
+Z12 !s90 +acc|-work|lib_BENCH|decoder_bench.vhd|
+Z13 !s107 decoder_bench.vhd|
+Z14 o+acc -work lib_BENCH
+Z15 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 [?>l82IfE7SWgLXTH_9P@1
 !i10b 1
 !i111 0
-Aa
+Aarch
 R5
 R6
-R7
-DEx4 work 9 tb_memory 0 22 ^lV[WnJF6XQHdU;_dG_ok3
-l37
-L11
-V7DmFb0]BMHmoneF0HolF>1
-R10
+DEx4 work 12 decoderbench 0 22 0a<C^E?e:me=10GUWDJc72
+l123
+L31
+V9nb;@0BGWb=:Q^lB^eH8f2
+R9
 32
+R10
 R11
 R12
 R13
 R14
 R15
-R16
-!s100 oP?>V`meA4Z=IRMd@3b2L0
+!s100 f3h0TdT;cGOfIRTLj?<`I1
 !i10b 1
 !i111 0

@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../../../vhd/recep_rs232.vhd"
+vhdl xil_defaultlib  "../../../../../vhd/recep_rs232_bench.vhd"
+
+# Do not sort compile order
+nosort

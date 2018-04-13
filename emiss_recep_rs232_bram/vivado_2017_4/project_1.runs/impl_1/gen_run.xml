@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1521714519">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BG-DRC" Name="emiss_recep_rs232_bram.drc"/>
+  <File Type="BG-BGN" Name="emiss_recep_rs232_bram.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="emiss_recep_rs232_bram.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="emiss_recep_rs232_bram.ltx"/>
+  <File Type="BITSTR-MMI" Name="emiss_recep_rs232_bram.mmi"/>
+  <File Type="BITSTR-BMM" Name="emiss_recep_rs232_bram_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="emiss_recep_rs232_bram.nky"/>
+  <File Type="BITSTR-RBT" Name="emiss_recep_rs232_bram.rbt"/>
+  <File Type="BITSTR-MSK" Name="emiss_recep_rs232_bram.msk"/>
+  <File Type="BG-BIN" Name="emiss_recep_rs232_bram.bin"/>
+  <File Type="BG-BIT" Name="emiss_recep_rs232_bram.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="emiss_recep_rs232_bram_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="emiss_recep_rs232_bram_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="emiss_recep_rs232_bram_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="emiss_recep_rs232_bram_postroute_physopt.dcp"/>
+  <File Type="ROUTE-CLK" Name="emiss_recep_rs232_bram_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="emiss_recep_rs232_bram_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="emiss_recep_rs232_bram_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="emiss_recep_rs232_bram_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="emiss_recep_rs232_bram_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="emiss_recep_rs232_bram_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="emiss_recep_rs232_bram_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="emiss_recep_rs232_bram_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="emiss_recep_rs232_bram_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="emiss_recep_rs232_bram_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="emiss_recep_rs232_bram_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="emiss_recep_rs232_bram_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="emiss_recep_rs232_bram_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="emiss_recep_rs232_bram_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="emiss_recep_rs232_bram_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="emiss_recep_rs232_bram_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="emiss_recep_rs232_bram_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="emiss_recep_rs232_bram_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="emiss_recep_rs232_bram_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="emiss_recep_rs232_bram_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="emiss_recep_rs232_bram_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="emiss_recep_rs232_bram_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="emiss_recep_rs232_bram_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="emiss_recep_rs232_bram_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="emiss_recep_rs232_bram_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="emiss_recep_rs232_bram_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="emiss_recep_rs232_bram_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="emiss_recep_rs232_bram_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="emiss_recep_rs232_bram_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="emiss_recep_rs232_bram_io_placed.rpt"/>
+  <File Type="RDI-RDI" Name="emiss_recep_rs232_bram.vdi"/>
+  <File Type="PWROPT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="emiss_recep_rs232_bram_drc_pwropted.rpt"/>
+  <File Type="OPT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="emiss_recep_rs232_bram.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="emiss_recep_rs232_bram_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="emiss_recep_rs232_bram_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="emiss_recep_rs232_bram_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="emiss_recep_rs232_bram_timing_summary_init.rpt"/>
+  <File Type="PWROPT-DCP" Name="emiss_recep_rs232_bram_pwropt.dcp"/>
+  <File Type="REPORTS-TCL" Name="emiss_recep_rs232_bram_reports.tcl"/>
+  <File Type="PLACE-DCP" Name="emiss_recep_rs232_bram_placed.dcp"/>
+  <File Type="PA-TCL" Name="emiss_recep_rs232_bram.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/vhd/emiss_rs232.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vhd/emiss_rs232.vhd"/>
+        <Attr Name="ImportTime" Val="1520348161"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/vhd/fsm_write.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vhd/fsm_write.vhd"/>
+        <Attr Name="ImportTime" Val="1520348409"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/vhd/recep_rs232.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vhd/recep_rs232.vhd"/>
+        <Attr Name="ImportTime" Val="1520344534"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/vhd/emiss_recep_rs232_bram.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vhd/emiss_recep_rs232_bram.vhd"/>
+        <Attr Name="ImportTime" Val="1521478423"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../vhd/ram_16x8.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="emiss_recep_rs232_bram"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/vhd/zedb_emiss_recep_rs232_bram.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../vhd/zedb_emiss_recep_rs232_bram.xdc"/>
+        <Attr Name="ImportTime" Val="1520265760"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="bram_16x8"/>
+</GenRun>

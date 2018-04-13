@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Mar 22 11:31:26 2018
+# Process ID: 19234
+# Current directory: /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vivado_2017_4/project_1.runs/impl_1
+# Command line: vivado -log emiss_recep_rs232_bram.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source emiss_recep_rs232_bram.tcl -notrace
+# Log file: /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vivado_2017_4/project_1.runs/impl_1/emiss_recep_rs232_bram.vdi
+# Journal file: /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vivado_2017_4/project_1.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source emiss_recep_rs232_bram.tcl -notrace

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd/recep_rs232.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity recep_rs232
+INFO: [VRFC 10-163] Analyzing VHDL file "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd/recep_rs232_bench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity recep_rs232_vhd_tst

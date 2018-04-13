@@ -1,0 +1,7 @@
+Running: xsim.dir/recep_rs232_vhd_tst_behav/xsimk -simmode gui -wdb recep_rs232_vhd_tst_behav.wdb -simrunnum 0 -socket 60970
+Design successfully loaded
+Design Loading Memory Usage: 41440 KB (Peak: 41440 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 131380 KB (Peak: 188716 KB)
+Simulation CPU Usage: 30 ms

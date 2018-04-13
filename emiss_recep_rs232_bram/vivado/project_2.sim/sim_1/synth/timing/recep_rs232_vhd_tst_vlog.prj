@@ -1,0 +1,5 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "recep_rs232_vhd_tst_time_synth.v"
+
+# Do not sort compile order
+nosort

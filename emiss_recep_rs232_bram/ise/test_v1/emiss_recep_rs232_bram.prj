@@ -1,0 +1,5 @@
+vhdl work "ipcore_dir/bram_16x8.vhd"
+vhdl work "../../vhd_zed/recep_rs232.vhd"
+vhdl work "../../vhd_zed/fsm_write.vhd"
+vhdl work "../../vhd_zed/emiss_rs232.vhd"
+vhdl work "../../vhd_zed/emiss_recep_rs232_bram.vhd"

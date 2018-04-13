@@ -30,11 +30,11 @@ end entity decoderBench;
 
 architecture arch of decoderBench is
 
-  signal sigInstruction : std_logic_vector(31 downto 0);
+  signal sigCode : std_logic_vector(31 downto 0);
 
   --Internal signals
-  signal sigOpcode      : std_logic_vector(6 downto 0);
-  signal sigFunc3       : std_logic_vector(2 downto 0);
+  --signal sigOpcode      : std_logic_vector(6 downto 0);
+  --signal sigFunc3       : std_logic_vector(2 downto 0);
   signal sigJumpType    : std_logic;
   signal sigBranchType  : std_logic;
   signal sigLoadType    : std_logic;
@@ -71,25 +71,29 @@ architecture arch of decoderBench is
   signal sigBpT2E1 : std_logic;         -- Bypass T+2 E1 enable
   signal sigBpT2E2 : std_logic;         -- Bypass T+2 E2 enable
 
+  signal sigClk : std_logic := '0';
+  signal sigRst : std_logic;
+
+
 
 
 
 
   component decoder
-    port (instruction : in std_logic_vector (31 downto 0);
+    port (code : in std_logic_vector (31 downto 0);
 
           --ALU control signals
           aluSel : out std_logic_vector(3 downto 0);
 
 
           --Regfile control signals
-          reqRead1 : out std_logic;     -- Requests a read on regfile
-          reqRead2 : out std_logic;     -- Requests a second read on regfile
-          reqWrite : out std_logic;     -- Requests a write on regfile
-          rs1      : out std_logic_vector(4 downto 0);
-          rs2      : out std_logic_vector(4 downto 0);
-          rd       : out std_logic_vector(4 downto 0);
-          selRegIn : out std_logic;  -- Selects which signal writes into the regfile
+          reqRead1 : out   std_logic;   -- Requests a read on regfile
+          reqRead2 : out   std_logic;   -- Requests a second read on regfile
+          reqWrite : out   std_logic;   -- Requests a write on regfile
+          rs1      : inout std_logic_vector(4 downto 0);
+          rs2      : inout std_logic_vector(4 downto 0);
+          rd       : inout std_logic_vector(4 downto 0);
+          selRegIn : out   std_logic;  -- Selects which signal writes into the regfile
 
           --Memory control signals
           mem_access : out std_logic;   -- Requests an access to the memory
@@ -107,6 +111,11 @@ architecture arch of decoderBench is
           bpT1E2 : out std_logic;       -- Bypass T+1 E2 enable
           bpT2E1 : out std_logic;       -- Bypass T+2 E1 enable
           bpT2E2 : out std_logic;       -- Bypass T+2 E2 enable
+
+          clk : in std_logic;
+          rst : in std_logic
+
+
           );
   end component;
 
@@ -116,24 +125,27 @@ begin  -- architecture arch
   
 
   dec1 : decoder
-    port map (instruction => sigInstruction,
-              aluSel      => sigAluSel,
-              reqRead1    => sigReqRead1,
-              reqRead2    => sigReqRead2,
-              reqWrite    => sigReqRead,
-              rs1         => sigRs1,
-              rs2         => sigRs2,
-              rd          => sigRd,
-              selRegIn    => sigRegIn,
-              mem_access  => sigMem_access,
-              memRW       => sigMemRW,
-              memSize     => sigMemSize,
-              aluE1Sel    => sigAluE1Sel,
-              aluE2Sel    => sigAluE2Sel,
-              bpT1E1      => sigBpT1E1,
-              bpT1E2      => sigBpT1E2,
-              bpT2E1      => sigBpT2E1,
-              bpT2E2      => sigBpT2E2,
+    port map (code       => sigCode,
+              aluSel     => sigAluSel,
+              reqRead1   => sigReqRead1,
+              reqRead2   => sigReqRead2,
+              reqWrite   => sigReqWrite,
+              rs1        => sigRs1,
+              rs2        => sigRs2,
+              rd         => sigRd,
+              selRegIn   => sigSelRegIn,
+              mem_access => sigMem_access,
+              memRW      => sigMemRW,
+              memSize    => sigMemSize,
+              memSign    => sigMemSign,
+              aluE1Sel   => sigAluE1Sel,
+              aluE2Sel   => sigAluE2Sel,
+              bpT1E1     => sigBpT1E1,
+              bpT1E2     => sigBpT1E2,
+              bpT2E1     => sigBpT2E1,
+              bpT2E2     => sigBpT2E2,
+              clk        => sigClk,
+              rst        => sigRst
               );
 
   sigClk <= not(sigClk) after 10 ns;
@@ -142,59 +154,65 @@ begin  -- architecture arch
 
   begin
 
-    wait until clk'event and clk = '1';
+    sigRst <= '1';
+
+    wait for 40 ns;
+
+    sigRst <= '0';
+
+    wait until sigClk'event and sigClk = '1';
     --LUI imm -> r4
-    sigInstruction <= "00000000000111000111001000110111";
+    sigCode <= "00000000000111000111001000110111";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --AUIPC imm -> r12
-    sigInstruction <= "00000000000000000000011000010111";
+    sigCode <= "00000000000000000000011000010111";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --JALR r8->r20
-    sigInstruction <= "00000000000001000000101001100111";
+    sigCode <= "00000000000001000000101001100111";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --LB r2->r11
-    sigInstruction <= "00000000000000010000010110000011";
+    sigCode <= "00000000000000010000010110000011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --LHU r4->r16
-    sigInstruction <= "00000000000000100101100000000011";
+    sigCode <= "00000000000000100101100000000011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --SW r3 r10
-    sigInstruction <= "00000000110000011010000000100011";
+    sigCode <= "00000000110000011010000000100011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --ADDI r11->r4
-    sigInstruction <= "000000000000 01011 000 00100 0010011";
+    sigCode <= "00000000000001011000001000010011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --ANDI r4->r0 --Active le bypass T1E1
-    sigInstruction <= "000000000000 00100 111 00000 0010011";
+    sigCode <= "00000000000000100111000000010011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --NOP
-    sigInstruction <= "00000000000000000000000000000000";
+    sigCode <= "00000000000000000000000000000000";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --NOP
-    sigInstruction <= "00000000000000000000000000000000";
+    sigCode <= "00000000000000000000000000000000";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --LB r2->r11 
-    sigInstruction <= "00000000000000010000010110000011";
+    sigCode <= "00000000000000010000010110000011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --OR r11 r10 -> r14  --Genère une bulle puis active le bypass T2E2
-    sigInstruction <= "00000000101101010110010110110011";
+    sigCode <= "00000000101101010110010110110011";
 
-    wait until clk'event and clk = '1';
+    wait until sigClk'event and sigClk = '1';
     --NOP
-    sigInstruction <= "00000000000000000000000000000000";
+    sigCode <= "00000000000000000000000000000000";
 
     assert false report "Simulation terminee" severity failure;
     
-  end simulation;
+  end process simulation;
 end architecture arch;

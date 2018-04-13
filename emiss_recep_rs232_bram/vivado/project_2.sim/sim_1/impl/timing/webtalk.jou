@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Tue Mar  6 14:12:48 2018
+# Process ID: 24869
+# Current directory: /cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/impl/timing
+# Command line: wbtcv -mode batch -source /cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/impl/timing/xsim.dir/recep_rs232_vhd_tst_time_impl/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/impl/timing/webtalk.log
+# Journal file: /cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/impl/timing/webtalk.jou
+#-----------------------------------------------------------
+source /cime-fmr/rollandl-fmr/xilinx/pynk/emiss_recep_rs232_bram/vivado/project_2.sim/sim_1/impl/timing/xsim.dir/recep_rs232_vhd_tst_time_impl/webtalk/xsim_webtalk.tcl -notrace

@@ -1,0 +1,13 @@
+
+State Machine - |emiss_rs232|Current_State
+Name Current_State.tempo_t Current_State.stop2 Current_State.lec_pf_st Current_State.att Current_State.stop Current_State.data_emiss Current_State.emiss Current_State.start Current_State.init Current_State.init0 
+Current_State.init0 0 0 0 0 0 0 0 0 0 0 
+Current_State.init 0 0 0 0 0 0 0 0 1 1 
+Current_State.start 0 0 0 0 0 0 0 1 0 1 
+Current_State.emiss 0 0 0 0 0 0 1 0 0 1 
+Current_State.data_emiss 0 0 0 0 0 1 0 0 0 1 
+Current_State.stop 0 0 0 0 1 0 0 0 0 1 
+Current_State.att 0 0 0 1 0 0 0 0 0 1 
+Current_State.lec_pf_st 0 0 1 0 0 0 0 0 0 1 
+Current_State.stop2 0 1 0 0 0 0 0 0 0 1 
+Current_State.tempo_t 1 0 0 0 0 0 0 0 0 1 

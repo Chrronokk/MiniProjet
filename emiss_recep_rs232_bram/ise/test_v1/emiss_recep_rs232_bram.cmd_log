@@ -1,0 +1,66 @@
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z010-clg400-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z010-clg400-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+par -w -intstyle ise -ol high -mt off emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ncd emiss_recep_rs232_bram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml emiss_recep_rs232_bram.twx emiss_recep_rs232_bram.ncd -o emiss_recep_rs232_bram.twr emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z010-clg400-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z010-clg400-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg400-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg400-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+par -w -intstyle ise -ol high -mt off emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ncd emiss_recep_rs232_bram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml emiss_recep_rs232_bram.twx emiss_recep_rs232_bram.ncd -o emiss_recep_rs232_bram.twr emiss_recep_rs232_bram.pcf 
+bitgen -intstyle ise -f emiss_recep_rs232_bram.ut emiss_recep_rs232_bram.ncd 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+par -w -intstyle ise -ol high -mt off emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ncd emiss_recep_rs232_bram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml emiss_recep_rs232_bram.twx emiss_recep_rs232_bram.ncd -o emiss_recep_rs232_bram.twr emiss_recep_rs232_bram.pcf 
+bitgen -intstyle ise -f emiss_recep_rs232_bram.ut emiss_recep_rs232_bram.ncd 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+par -w -intstyle ise -ol high -mt off emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ncd emiss_recep_rs232_bram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml emiss_recep_rs232_bram.twx emiss_recep_rs232_bram.ncd -o emiss_recep_rs232_bram.twr emiss_recep_rs232_bram.pcf 
+bitgen -intstyle ise -f emiss_recep_rs232_bram.ut emiss_recep_rs232_bram.ncd 
+xst -intstyle ise -ifn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.xst" -ofn "/cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/ise/test_v1/emiss_recep_rs232_bram.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /cime-fmr/rollandl-fmr/xilinx/zedboard/emiss_recep_rs232_bram/vhd_zed/system.ucf -p xc7z020-clg484-3 emiss_recep_rs232_bram.ngc emiss_recep_rs232_bram.ngd  
+map -intstyle ise -p xc7z020-clg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ngd emiss_recep_rs232_bram.pcf 
+par -w -intstyle ise -ol high -mt off emiss_recep_rs232_bram_map.ncd emiss_recep_rs232_bram.ncd emiss_recep_rs232_bram.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml emiss_recep_rs232_bram.twx emiss_recep_rs232_bram.ncd -o emiss_recep_rs232_bram.twr emiss_recep_rs232_bram.pcf 
+bitgen -intstyle ise -f emiss_recep_rs232_bram.ut emiss_recep_rs232_bram.ncd 

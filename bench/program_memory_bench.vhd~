@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library lib_VHDL;
+use lib_VHDL.all;
+
+entity Tb_program is
+end Tb_program;
+
+architecture A of Tb_program is
+
+  component program_memory
+    port(
+      rst         : in  std_logic;      -- reset
+      pc          : in  std_logic_vector(31 downto 0);   -- ligne à lire
+      instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
+
+
+  end component;
+
+-- Inputs
+  signal sig_rst : std_logic := '1';
+  signal sig_pc : std_logic_vector(31 downto 0) := (others <= '0');
+  
+  
+begin  -- A 
+
+
+
+end A;

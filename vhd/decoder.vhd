@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-05
+-- Last update: 2018-04-13
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -26,20 +26,22 @@ use ieee.std_logic_1164.all;
 
 entity decoder is
 
-  port (instruction : in std_logic_vector (31 downto 0);
+  port (code : in std_logic_vector (31 downto 0);
+        clk  : in std_logic;
+        rst  : in std_logic;
 
         --ALU control signals
         aluSel : out std_logic_vector(3 downto 0);
 
 
         --Regfile control signals
-        reqRead1 : out std_logic;       -- Requests a read on regfile
-        reqRead2 : out std_logic;       -- Requests a second read on regfile
-        reqWrite : out std_logic;       -- Requests a write on regfile
-        rs1      : out std_logic_vector(4 downto 0);
-        rs2      : out std_logic_vector(4 downto 0);
-        rd       : out std_logic_vector(4 downto 0);
-        selRegIn : out std_logic;  -- Selects which signal writes into the regfile
+        reqRead1 : out   std_logic;     -- Requests a read on regfile
+        reqRead2 : out   std_logic;     -- Requests a second read on regfile
+        reqWrite : out   std_logic;     -- Requests a write on regfile
+        rs1      : inout std_logic_vector(4 downto 0);
+        rs2      : inout std_logic_vector(4 downto 0);
+        rd       : inout std_logic_vector(4 downto 0);
+        selRegIn : out   std_logic;  -- Selects which signal writes into the regfile
 
         --Memory control signals
         mem_access : out std_logic;     -- Requests an access to the memory
@@ -56,7 +58,7 @@ entity decoder is
         bpT1E1 : out std_logic;         -- Bypass T+1 E1 enable
         bpT1E2 : out std_logic;         -- Bypass T+1 E2 enable
         bpT2E1 : out std_logic;         -- Bypass T+2 E1 enable
-        bpT2E2 : out std_logic;         -- Bypass T+2 E2 enable
+        bpT2E2 : out std_logic          -- Bypass T+2 E2 enable
 
         );
 
@@ -68,44 +70,20 @@ architecture arch of decoder is
 
 
   --Internal signals
-  signal opcode      : std_logic_vector(6 downto 0);
-  signal func3       : std_logic_vector(2 downto 0);
-  signal jumpType    : std_logic;
-  signal branchType  : std_logic;
-  signal loadType    : std_logic;
-  signal bubbleCount : integer;
+  signal opcode     : std_logic_vector(6 downto 0);
+  signal func3      : std_logic_vector(2 downto 0);
+  signal jumpType   : std_logic;
+  signal branchType : std_logic;
+  signal loadType   : std_logic;
+  signal bubbleNum  : integer;
 
+  signal prev_write_1 : std_logic_vector(4 downto 0);
+  signal prev_write_2 : std_logic_vector(4 downto 0);
+  signal loadTypePrev : std_logic;
 
-  --ALU control signals
-  signal aluSel : std_logic_vector(3 downto 0);  -- Selects the ALU operation
+  signal bpT2E1next : std_logic;
+  signal bpT2E2next : std_logic;
 
-
-  --Regfile control signals
-  signal reqRead1 : std_logic;          -- Requests a read on regfile
-  signal reqRead2 : std_logic;          -- Requests a second read on regfile
-  signal reqWrite : std_logic;          -- Requests a write on regfile
-  signal rs1      : std_logic_vector(4 downto 0);
-  signal rs2      : std_logic_vector(4 downto 0);
-  signal rd       : std_logic_vector(4 downto 0);
-  signal selRegIn : std_logic;  -- Selects which signal writes into the regfile
-
-  --Memory control signals
-  signal mem_access : std_logic;        -- Requests an access to the memory
-  signal memRW      : std_logic;        -- 0 for Read / 1 for Write
-  signal memSize    : std_logic_vector(1 downto 0);  -- Size of the memory access
-  signal memSign    : std_logic;        -- 0 if unsigned, 1 if signed
-
-
-  --Unclassified control signals
-  signal aluE1Sel : std_logic_vector(2 downto 0);  -- Selects which signal enters E1
-  signal aluE2Sel : std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-
-  --Bypass control signals
-  signal bpT1E1 : std_logic;            -- Bypass T+1 E1 enable
-  signal bpT1E2 : std_logic;            -- Bypass T+1 E2 enable
-  signal bpT2E1 : std_logic;            -- Bypass T+2 E1 enable
-  signal bpT2E2 : std_logic;            -- Bypass T+2 E2 enable
-  
 begin  -- architecture str
 
 
@@ -166,6 +144,8 @@ begin  -- architecture str
             aluSel <= "1101";
           when "111" =>                 --BGEU
             aluSel <= "1100";
+          when others =>
+            null;
         end case;
         
       when "1101111" =>                 --JAL
@@ -207,6 +187,8 @@ begin  -- architecture str
           when "101" =>                 --LHU
             memSize <= "10";
             memSign <= '0';
+          when others =>
+            null;
         end case;
         
       when "0100011" =>                 --Store type
@@ -220,6 +202,8 @@ begin  -- architecture str
             memSize <= "10";
           when "010" =>                 -- SW
             memSize <= "11";
+          when others =>
+            null;
         end case;
         
       when "0010011" =>                 --I_imm type
@@ -253,6 +237,8 @@ begin  -- architecture str
           when "111" =>                 -- ANDI
             aluSel   <= "0011";
             aluE1Sel <= "001";
+          when others =>
+            null;
         end case;
       when "0110011" =>                 --Register type
         case func3 is
@@ -279,93 +265,98 @@ begin  -- architecture str
             aluSel <= "0100";
           when "111" =>                 --AND
             aluSel <= "0011";
-
+          when others =>
+            null;
         end case;
-    -- Rajouter les syscalls
+        -- Rajouter les syscalls
+
+      when others =>
+        null;
     end case;
   end process decode;
 
 
 
-  -- purpose: Inserts a bubble into the pipeline if necessary
-  -- type   : sequential
-  -- inputs : clk, rst
-  -- outputs: 
+                                        -- purpose: Inserts a bubble into the pipeline if necessary
+                                        -- type   : sequential
+                                        -- inputs : clk, rst
+                                        -- outputs: 
   bubbleGen : process (clk, rst) is
   begin  -- process bubbleGen
     if rst = '0' then                   -- asynchronous reset (active low)
 
     elsif clk'event and clk = '1' then  -- rising clock edge
-      --Jump or Branch instruction
+                                        --Jump or Branch instruction
       if jumpType = '1' or branchType = '1' then
         bubbleNum <= 1;
       else
         bubbleNum <= 0;
       end if;
-    --
-    --TODO: Other bubble-generating issues
-    --
-    end process bubbleGen;
+                                        --
+                                        --TODO: Other bubble-generating issues
+                                        --
+    end if;
+  end process bubbleGen;
 
 
-      -- purpose: Send control signals to bypasses
-      -- type   : sequential
-      -- inputs : clk, rst
-      -- outputs: bpTiEj
-      bypass_command : process (clk, rst) is
-      begin  -- process bypass_command
-        if rst = '0' then               -- asynchronous reset (active low)
+                                        -- purpose: Send control signals to bypasses
+                                        -- type   : sequential
+                                        -- inputs : clk, rst
+                                        -- outputs: bpTiEj
+  bypass_command : process (clk, rst) is
+  begin  -- process bypass_command
+    if rst = '0' then                   -- asynchronous reset (active low)
 
-        elsif clk'event and clk = '1' then  -- rising clock edge
-
-
-          --Updating the registers
-          prev_write_2 <= prev_write_1;
-          prev_write_1 <= rd;
-
-          loadTypePrev <= loadType;
+    elsif clk'event and clk = '1' then  -- rising clock edge
 
 
-          if rs1 = prev_write_1 then
-            bpT1E1 <= '1';
-          else
-            bpT1E1 <= '0';
-          end if;
+                                        --Updating the registers
+      prev_write_2 <= prev_write_1;
+      prev_write_1 <= rd;
 
-          if rs2 = prev_write_1 then
-            bpT1E2 <= '1';
-          else
-            bpT1E2 <= '0';
-          end if;
+      loadTypePrev <= loadType;
 
-          if rs1 = prev_write_2 or bpT2E1next = '1' then
-            bpT2E1 <= '1';
-          else
-            bpT2E1 <= '0'
-          end if;
 
-          if rs2 = prev_write_2 or bpT2E2next = '1' then
-            bpT2E2 <= '1';
-          else
-            bpT2E2 <= '0'
-          end if;
+      if rs1 = prev_write_1 then
+        bpT1E1 <= '1';
+      else
+        bpT1E1 <= '0';
+      end if;
 
-          if loadTypePrev = '1' then
+      if rs2 = prev_write_1 then
+        bpT1E2 <= '1';
+      else
+        bpT1E2 <= '0';
+      end if;
 
-            if rs1 = prev_write_2 then
-              bpT2E1next <= '1';
-            else
-              bpT2E1next <= '0';
-            end if;
+      if rs1 = prev_write_2 or bpT2E1next = '1' then
+        bpT2E1 <= '1';
+      else
+        bpT2E1 <= '0';
+      end if;
 
-            if rs2 = prev_write_2 then
-              bpT2E2next <= '1';
-            else
-              bpT2E2next <= '0';
-            end if;
-            
-          end if;
-          
+      if rs2 = prev_write_2 or bpT2E2next = '1' then
+        bpT2E2 <= '1';
+      else
+        bpT2E2 <= '0';
+      end if;
+
+      if loadTypePrev = '1' then
+
+        if rs1 = prev_write_2 then
+          bpT2E1next <= '1';
+        else
+          bpT2E1next <= '0';
         end if;
-      end process bypass_command;
-    end arch;
+
+        if rs2 = prev_write_2 then
+          bpT2E2next <= '1';
+        else
+          bpT2E2next <= '0';
+        end if;
+        
+      end if;
+      
+    end if;
+  end process bypass_command;
+end arch;

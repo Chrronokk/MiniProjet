@@ -4,4 +4,4 @@ vlib ${TP_PATH}/libs/lib_BENCH
 
 vmap lib_BENCH ${TP_PATH}/libs/lib_BENCH 
 
-vcom +acc -work lib_BENCH memory_bench.vhd
+vcom +acc -work lib_BENCH decoder_bench.vhd

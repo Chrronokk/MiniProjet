@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Mar 20 14:10:02 2018
+Quartus II 32-bit Version : 11.1 Build 259 01/25/2012 SP 2 SJ Full Version
+Revision Name : emiss_rs232
+Top-level Entity Name : emiss_rs232
+Family : Cyclone II
+Total logic elements : 142
+    Total combinational functions : 142
+    Dedicated logic registers : 84
+Total registers : 84
+Total pins : 25
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

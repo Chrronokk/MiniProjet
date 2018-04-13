@@ -1,0 +1,17 @@
+Vivado Simulator 2017.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /softslin/vivado_17.1/Vivado/2017.1/bin/unwrapped/lnx64.o/xelab -wto b72e385810a6403da2ca9328a23a618e --debug typical --relax --mt 8 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot recep_rs232_vhd_tst_time_synth -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.recep_rs232_vhd_tst xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling module xil_defaultlib.glbl
+Compiling architecture a of entity xil_defaultlib.recep_rs232 [recep_rs232_default]
+Compiling architecture recep_rs232_arch of entity xil_defaultlib.recep_rs232_vhd_tst
+Built simulation snapshot recep_rs232_vhd_tst_time_synth
