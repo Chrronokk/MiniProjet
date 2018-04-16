@@ -7,36 +7,3 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim -voptargs=+acc lib_BENCH.decoderbench
-# vsim -voptargs=+acc lib_BENCH.decoderbench 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.decoderbench(arch)#1
-# Loading lib_vhdl.decoder(arch)#1
-add wave -position insertpoint sim:/decoderbench/*
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation terminee
-#    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
-# Break in Process simulation at decoder_bench.vhd line 218
-add wave -position insertpoint sim:/decoderbench/dec1/bubbleGen/*
-# (vish-4014) No objects found matching '/decoderbench/dec1/bubbleGen/*'.
-add wave -position insertpoint /decoderbench/dec1/loadTypePrev
-restart
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation terminee
-#    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
-# Break in Process simulation at decoder_bench.vhd line 218
-add wave -position insertpoint /decoderbench/dec1/loadType
-add wave -position insertpoint /decoderbench/dec1/prev_write_1
-add wave -position insertpoint /decoderbench/dec1/prev_write_2
-add wave -position insertpoint /decoderbench/dec1/bpT2E1next
-add wave -position insertpoint /decoderbench/dec1/bpT2E2next
-restart
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation terminee
-#    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
-# Break in Process simulation at decoder_bench.vhd line 218

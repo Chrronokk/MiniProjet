@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-29
--- Last update: 2018-04-13
+-- Last update: 2018-04-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -165,7 +165,7 @@ begin  -- architecture arch
 
     wait until sigClk'event and sigClk = '1';
     --LUI imm -> r4
-    sigCode <= "00000000000111000111001000110111";
+    sigCode <= "00000000000000000000001000110111";
 
     wait until sigClk'event and sigClk = '1';
     --AUIPC imm -> r12
