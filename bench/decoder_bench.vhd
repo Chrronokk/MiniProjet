@@ -157,11 +157,11 @@ begin  -- architecture arch
 
   begin
 
-    sigRst <= '1';
+    sigRst <= '0';
 
     wait for 30 ns;
 
-    sigRst <= '0';
+    sigRst <= '1';
 
     wait until sigClk'event and sigClk = '1';
     --LUI imm -> r4
