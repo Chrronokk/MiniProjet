@@ -224,7 +224,7 @@ architecture A of PROCESSEUR is
 
   end component mux5;
 
-  
+
 
   component regFile is
     port (
@@ -242,34 +242,41 @@ architecture A of PROCESSEUR is
       rst : in std_logic;
       clk : in std_logic);
 
-  end  regFile;
+  end regFile;
 
 
   component program_memory is
 
-  port (
-    rst         : in  std_logic;        -- reset
-    pc          : in  std_logic_vector(3 downto 0);   -- ligne à lire
-    instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
+    port (
+      rst         : in  std_logic;      -- reset
+      pc          : in  std_logic_vector(3 downto 0);    -- ligne à lire
+      instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
 
   end component program_memory;
 
   component memoire is
     port (
-    rst        : in  std_logic;         --reset
-    mem_access : in  std_logic;         -- utilisation de la mémoire
-    read_write : in  std_logic;         -- 0 pour read 1 pour write
-    adresse    : in  std_logic_vector(3 downto 0);  -- adresse d'accès mémoire
-    data_in    : in  std_logic_vector(31 downto 0);  -- données à charger dans la mémoire
-    data_out   : out std_logic_vector(31 downto 0);  -- données à charger dans le registre
-    size       : in  std_logic_vector(1 downto 0);  -- signal de sélection des extentions de données
-    sign       : in  std_logic);        -- signal de sélection sur le signe
+      rst        : in  std_logic;       --reset
+      mem_access : in  std_logic;       -- utilisation de la mémoire
+      read_write : in  std_logic;       -- 0 pour read 1 pour write
+      adresse    : in  std_logic_vector(3 downto 0);  -- adresse d'accès mémoire
+      data_in    : in  std_logic_vector(31 downto 0);  -- données à charger dans la mémoire
+      data_out   : out std_logic_vector(31 downto 0);  -- données à charger dans le registre
+      size       : in  std_logic_vector(1 downto 0);  -- signal de sélection des extentions de données
+      sign       : in  std_logic);      -- signal de sélection sur le signe
 
-end component memoire;
+  end component memoire;
 
+  signal
 
 begin  -- architecture A
 
-U1 : 
+  U1 : program_memory port map (
+    rst         => rst,
+    pc          => pc,
+    instruction => instruction);
+
+  U2 : regFile port map (
+    codeInstRead => <actual>
 
 end architecture A;
