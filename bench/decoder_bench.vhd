@@ -33,9 +33,9 @@ architecture arch of decoderBench is
   signal sigCode : std_logic_vector(31 downto 0);
 
   --Internal signals
- -- signal sigJumpType   : std_logic;
+  -- signal sigJumpType   : std_logic;
   --signal sigBranchType : std_logic;
- -- signal sigLoadType   : std_logic;
+  -- signal sigLoadType   : std_logic;
 
 
   --ALU control signals
@@ -86,9 +86,9 @@ architecture arch of decoderBench is
 
 
           --Regfile control signals
-          reqRead1 : inout   std_logic;   -- Requests a read on regfile
-          reqRead2 : inout   std_logic;   -- Requests a second read on regfile
-          reqWrite : inout   std_logic;   -- Requests a write on regfile
+          reqRead1 : inout std_logic;   -- Requests a read on regfile
+          reqRead2 : inout std_logic;   -- Requests a second read on regfile
+          reqWrite : inout std_logic;   -- Requests a write on regfile
           rs1      : inout std_logic_vector(4 downto 0);
           rs2      : inout std_logic_vector(4 downto 0);
           rd       : inout std_logic_vector(4 downto 0);
@@ -112,7 +112,7 @@ architecture arch of decoderBench is
           bpT2E2 : out std_logic;       -- Bypass T+2 E2 enable
 
           bubbleReq : out std_logic;
-          
+
 
           clk : in std_logic;
           rst : in std_logic
@@ -176,8 +176,8 @@ begin  -- architecture arch
     sigCode <= "00000000000001000000101001100111";
 
     wait until sigClk'event and sigClk = '1';
-    --LB r2->r11
-    sigCode <= "00000000000000010000010110000011";
+    --LB r12->r11 Active le bypass T2E1
+    sigCode <= "00000000000001100000010110000011";
 
     wait until sigClk'event and sigClk = '1';
     --LHU r4->r16
@@ -208,8 +208,12 @@ begin  -- architecture arch
     sigCode <= "00000000000000010000010110000011";
 
     wait until sigClk'event and sigClk = '1';
+    --NOP
+    sigCode <= "00000000000000000000000000000000";
+
+    wait until sigClk'event and sigClk = '1';
     --OR r11 r10 -> r14  --Genère une bulle puis active le bypass T2E2
-    sigCode <= "00000000101101010110010110110011";
+    sigCode <= "00000000101101010110011100110011";
 
     wait until sigClk'event and sigClk = '1';
     --NOP

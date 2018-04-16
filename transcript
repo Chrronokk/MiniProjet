@@ -7,33 +7,30 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.regbench
-# vsim lib_BENCH.regbench 
+vsim lib_BENCH.decoderbench
+# vsim lib_BENCH.decoderbench 
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: [1] regfile_bench.vhd(66): (vopt-3473) Component instance "/regBench/reg1 : regfile" is not bound.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.regbench(arch)#1
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
-add wave -position insertpoint sim:/regbench/*
+# Loading work.decoderbench(arch)#1
+# Loading lib_vhdl.decoder(arch)#1
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+add wave -position insertpoint sim:/decoderbench/*
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# Break key hit 
-# Simulation stop requested.
-restart -f
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-# Break key hit 
-# Simulation stop requested.
-restart -f
-# ** Warning: (vsim-3473) Component instance "reg1 : regfile" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /regbench File: /tp/xph2sei/xph2sei409/MiniProjet/bench/regfile_bench.vhd
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run -all
-run -all
-# Break key hit 
-# Simulation stop requested.
+run
+# ** Failure: Simulation terminee
+#    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: /tp/xph2sei/xph2sei409/MiniProjet/bench/decoder_bench.vhd
+# Break in Process simulation at /tp/xph2sei/xph2sei409/MiniProjet/bench/decoder_bench.vhd line 218
+add wave -position insertpoint  \
+sim:/decoderbench/dec1/prev_write_1 \
+sim:/decoderbench/dec1/prev_write_2 \
+sim:/decoderbench/dec1/loadTypePrev \
+sim:/decoderbench/dec1/loadTypePrev2

@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-13
+-- Last update: 2018-04-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -35,9 +35,9 @@ entity decoder is
 
 
         --Regfile control signals
-        reqRead1 : inout   std_logic;     -- Requests a read on regfile
-        reqRead2 : inout   std_logic;     -- Requests a second read on regfile
-        reqWrite : inout   std_logic;     -- Requests a write on regfile
+        reqRead1 : inout std_logic;     -- Requests a read on regfile
+        reqRead2 : inout std_logic;     -- Requests a second read on regfile
+        reqWrite : inout std_logic;     -- Requests a write on regfile
         rs1      : inout std_logic_vector(4 downto 0);
         rs2      : inout std_logic_vector(4 downto 0);
         rd       : inout std_logic_vector(4 downto 0);
@@ -78,9 +78,10 @@ architecture arch of decoder is
   signal branchType : std_logic;
   signal loadType   : std_logic;
 
-  signal prev_write_1 : std_logic_vector(4 downto 0);
-  signal prev_write_2 : std_logic_vector(4 downto 0);
-  signal loadTypePrev : std_logic;
+  signal prev_write_1  : std_logic_vector(4 downto 0);
+  signal prev_write_2  : std_logic_vector(4 downto 0);
+  signal loadTypePrev  : std_logic;
+  signal loadTypePrev2 : std_logic;
 
   signal bpT2E1next : std_logic;
   signal bpT2E2next : std_logic;
@@ -89,17 +90,19 @@ begin  -- architecture str
 
 
 
-  opcode <= code(6 downto 0);
-  func3  <= code(14 downto 12);
+
 
   -- purpose: Initializes the value of rs1,rs2,rd
   -- type   : combinational
   -- inputs : opcode
   -- outputs: rs1,rs2,rd
-  initReg : process (opcode)
+  initReg : process (code, reqRead1, reqRead2, reqWrite)
 
   begin  -- process initReg
-    
+
+    opcode <= code(6 downto 0);
+    func3  <= code(14 downto 12);
+
     if reqRead1 = '1' then
       rs1 <= code(19 downto 15);
     else
@@ -121,7 +124,8 @@ begin  -- architecture str
 
 
 
-  decode : process(code) is             --Process combinatoire de décodage
+  decode : process(branchType, code, func3, jumpType, loadTypePrev2, opcode,
+                   prev_write_2, rs1, rs2) is  --Process combinatoire de décodage
 
   begin
 
@@ -146,13 +150,21 @@ begin  -- architecture str
     memSize    <= "01";
     memSign    <= '1';
 
-    --Others
+    --MUX
     aluE1Sel <= "011";
     aluE2Sel <= "00";
 
+    --Bubble Generation
+    if branchType = '1' or jumpType = '1' then
+      bubbleReq <= '1';
+    elsif loadTypePrev2 = '1' and rs1 = prev_write_2 then
+      bubbleReq <= '1';
+    elsif loadTypePrev2 = '1' and rs2 = prev_write_2 then
+      bubbleReq <= '1';
+    else
+      bubbleReq <= '0';
+    end if;
 
-
-    --Réinitialisation des pointeurs des registres inutilises
 
     case opcode is
 
@@ -296,45 +308,24 @@ begin  -- architecture str
           when others =>
             null;
         end case;
-        -- Rajouter les syscalls
-
+        
       when others =>
         null;
     end case;
+    
   end process decode;
 
 
 
-                                        -- purpose: Inserts a bubble into the pipeline if necessary
+
+                                        -- purpose: Remembers previous signals
                                         -- type   : sequential
                                         -- inputs : clk, rst
                                         -- outputs: 
-  bubbleGen : process (clk, rst) is
-  begin  -- process bubbleGen
+  updateSeq : process (clk, rst) is
+  begin  -- process updateSeq
     if rst = '0' then                   -- asynchronous reset (active low)
-
-    elsif clk'event and clk = '1' then  -- rising clock edge
-                                        --Jump or Branch instruction
-      if jumpType = '1' or branchType = '1' then
-        bubbleReq <= '1';
-      else
-        bubbleReq <= '0';
-      end if;
-                                        --
-                                        --TODO: Other bubble-generating issues
-                                        --
-    end if;
-  end process bubbleGen;
-
-
-                                        -- purpose: Send control signals to bypasses
-                                        -- type   : sequential
-                                        -- inputs : clk, rst
-                                        -- outputs: bpTiEj
-  bypass_command : process (clk, rst) is
-  begin  -- process bypass_command
-    if rst = '0' then                   -- asynchronous reset (active low)
-
+      null;
     elsif clk'event and clk = '1' then  -- rising clock edge
 
 
@@ -342,49 +333,48 @@ begin  -- architecture str
       prev_write_2 <= prev_write_1;
       prev_write_1 <= rd;
 
-      loadTypePrev <= loadType;
-
-
-      if rs1 = prev_write_1 then
-        bpT1E1 <= '1';
-      else
-        bpT1E1 <= '0';
-      end if;
-
-      if rs2 = prev_write_1 then
-        bpT1E2 <= '1';
-      else
-        bpT1E2 <= '0';
-      end if;
-
-      if rs1 = prev_write_2 or bpT2E1next = '1' then
-        bpT2E1 <= '1';
-      else
-        bpT2E1 <= '0';
-      end if;
-
-      if rs2 = prev_write_2 or bpT2E2next = '1' then
-        bpT2E2 <= '1';
-      else
-        bpT2E2 <= '0';
-      end if;
-
-      if loadTypePrev = '1' then
-
-        if rs1 = prev_write_2 then
-          bpT2E1next <= '1';
-        else
-          bpT2E1next <= '0';
-        end if;
-
-        if rs2 = prev_write_2 then
-          bpT2E2next <= '1';
-        else
-          bpT2E2next <= '0';
-        end if;
-        
-      end if;
+      loadTypePrev2 <= loadTypePrev;
+      loadTypePrev  <= loadType;
       
     end if;
-  end process bypass_command;
+  end process updateSeq;
+
+
+
+  -- purpose: Send control signals to BP MUX
+  -- type   : combinational
+  -- inputs : 
+  -- outputs: BpTxEx
+  enableBP : process (prev_write_1, prev_write_2, rs1, rs2)
+  begin  -- process enableBP
+
+    if rs1 = prev_write_1 and rs1 /= "00000" then
+      bpT1E1 <= '1';
+    else
+      bpT1E1 <= '0';
+    end if;
+
+    if rs2 = prev_write_1 and rs2 /= "00000" then
+      bpT1E2 <= '1';
+    else
+      bpT1E2 <= '0';
+    end if;
+
+    if rs1 = prev_write_2 and rs1 /= "00000" then
+      bpT2E1 <= '1';
+    else
+      bpt2E1 <= '0';
+    end if;
+
+    if rs2 = prev_write_2 and rs2 /= "00000" then
+      bpT2E2 <= '1';
+    else
+      bpT2E2 <= '0';
+    end if;
+
+    
+  end process enableBP;
+  
 end arch;
+
+

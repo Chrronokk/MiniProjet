@@ -38,3 +38,214 @@ run
 # ** Failure: Simulation terminee
 #    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
 # Break in Process simulation at decoder_bench.vhd line 218
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.decoderbench(arch)#1
+# Loading lib_vhdl.decoder(arch)#1
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 290 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 218
+run
+# ** Failure: Simulation terminee
+#    Time: 570 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 218
+restart
+# Window cannot be closed because the modal window "Restart" is still open.
+# Window cannot be closed because the modal window "Restart" is still open.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.decoderbench(arch)#1
+# Loading lib_vhdl.decoder(arch)#1
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 310 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+run
+# ** Failure: Simulation terminee
+#    Time: 610 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+run
+# ** Failure: Simulation terminee
+#    Time: 910 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+run
+# ** Failure: Simulation terminee
+#    Time: 1210 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+run
+# ** Failure: Simulation terminee
+#    Time: 1510 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+run
+# ** Failure: Simulation terminee
+#    Time: 1810 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 310 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.decoderbench(arch)#1
+# Loading lib_vhdl.decoder(arch)#1
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 310 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+add wave -position insertpoint /decoderbench/dec1/branchType
+add wave -position insertpoint /decoderbench/dec1/jumpType
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 310 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+add wave -position insertpoint /decoderbench/dec1/prev_write_2
+add wave -position insertpoint /decoderbench/dec1/loadTypePrev2
+restart
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT1E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E1 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /decoderbench/dec1/bpT2E2 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Failure: Simulation terminee
+#    Time: 310 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
+# Break in Process simulation at decoder_bench.vhd line 222
+# Causality operation skipped due to absence of debug database file
+#  Trace back: invalid command name ".tree"
+#     while executing
+# "$wt cursoractivenumber"
+#     (object "::.main_pane.dataflow.interior.cs.body.pw.df.c" method "::vsimwidgets::Dataflow::Base::UserChangedActiveTime" body line 9)
+#     invoked from within
+# "::.main_pane.dataflow.interior.cs.body.pw.df.c UserChangedActiveTime"
+#     (in namespace inscope "::vsimwidgets::Dataflow::Base" script line 1)
+#     invoked from within
+# "namespace inscope ::vsimwidgets::Dataflow::Base {::.main_pane.dataflow.interior.cs.body.pw.df.c UserChangedActiveTime}"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval [$timebar cget -timechangecb]"
+#     (procedure "::vsimwidgets::TimeBar::TimeChangeHandler" body line 17)
+#     invoked from within
+# "::vsimwidgets::TimeBar::TimeChangeHandler ::vsimPriv acttime write"
+#     (write trace on "::vsimPriv(acttime)")
+#     invoked from within
+# "set ::vsimPriv(acttime) $t"
+#     (procedure "::TimeBarCmd::SetActiveTime" line 10)
+#     invoked from within
+# "::TimeBarCmd::SetActiveTime $t "--store""
+#     (procedure "::vsimwidgets::TimeBar::SetActiveTime" body line 18)
+#     invoked from within
+# "SetActiveTime $_acttimeAfterDrag --postdrag"
+#     (procedure "::vsimwidgets::TimeBar::WaveCursorDragChange" body line 23)
+#     invoked from within
+# "::vsimwidgets::TimeBar::WaveCursorDragChange vsimPriv dragging_cursor write"
+#     (write trace on "vsimPriv(dragging_cursor)")
+#     invoked from within
+# "set vsimPriv(dragging_cursor) 0"
+#     (procedure "Wave::1Up" line 76)
+#     invoked from within
+# "Wave::1Up $widget $x $y"
+#     (procedure "Wave::SelectUp" line 4)
+#     invoked from within
+# "Wave::SelectUp	 .main_pane.wave.interior.cs.body.pw.wf.grid.row0,wave.data 670 246 1133 469 "
+#     (command bound to event) 
+#    <2:/mtitcl/tk8.5/bgerror.tcl:92: ::tkerror {can't set "vsimPriv(dragging_cursor)": can't set "::vsimPriv(acttime)": invalid command name ".tree"} 
+#    <1:eval:1: ::tk::dialog::error::bgerror {can't set "vsimPriv(dragging_cursor)": can't set "::vsimPriv(acttime)": invalid command name ".tree"} 
+#  Trace back: invalid command name ".tree"
+#     while executing
+# "$wt cursoractivenumber"
+#     (object "::.main_pane.dataflow.interior.cs.body.pw.df.c" method "::vsimwidgets::Dataflow::Base::UserChangedActiveTime" body line 9)
+#     invoked from within
+# "::.main_pane.dataflow.interior.cs.body.pw.df.c UserChangedActiveTime"
+#     (in namespace inscope "::vsimwidgets::Dataflow::Base" script line 1)
+#     invoked from within
+# "namespace inscope ::vsimwidgets::Dataflow::Base {::.main_pane.dataflow.interior.cs.body.pw.df.c UserChangedActiveTime}"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval [$timebar cget -timechangecb]"
+#     (procedure "::vsimwidgets::TimeBar::TimeChangeHandler" body line 17)
+#     invoked from within
+# "::vsimwidgets::TimeBar::TimeChangeHandler ::vsimPriv acttime write"
+#     (write trace on "::vsimPriv(acttime)")
+#     invoked from within
+# "set ::vsimPriv(acttime) $t"
+#     (procedure "::TimeBarCmd::SetActiveTime" line 10)
+#     invoked from within
+# "::TimeBarCmd::SetActiveTime $t "--store""
+#     (procedure "::vsimwidgets::TimeBar::SetActiveTime" body line 18)
+#     invoked from within
+# "SetActiveTime $_acttimeAfterDrag --postdrag"
+#     (procedure "::vsimwidgets::TimeBar::WaveCursorDragChange" body line 23)
+#     invoked from within
+# "::vsimwidgets::TimeBar::WaveCursorDragChange vsimPriv dragging_cursor write"
+#     (write trace on "vsimPriv(dragging_cursor)")
+#     invoked from within
+# "set vsimPriv(dragging_cursor) 0"
+#     (procedure "Wave::1Up" line 76)
+#     invoked from within
+# "Wave::1Up $widget $x $y"
+#     (procedure "Wave::SelectUp" line 4)
+#     invoked from within
+# "Wave::SelectUp	 .main_pane.wave.interior.cs.body.pw.wf.grid.row0,wave.data 725 449 1188 672 "
+#     (command bound to event) 
+#    <2:/mtitcl/tk8.5/bgerror.tcl:92: ::tkerror {can't set "vsimPriv(dragging_cursor)": can't set "::vsimPriv(acttime)": invalid command name ".tree"} 
+# Window cannot be closed because the modal window "Error in Tcl Script" is still open.
