@@ -342,7 +342,7 @@ begin  -- architecture str
       prev_write_2 <= prev_write_1;
       prev_write_1 <= rd;
 
-      loadTypePrev <= loadType;
+      loadTypePrev <= ;
 
 
       if rs1 = prev_write_1 then

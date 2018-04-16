@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-29
--- Last update: 2018-04-13
+-- Last update: 2018-04-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -33,12 +33,9 @@ architecture arch of decoderBench is
   signal sigCode : std_logic_vector(31 downto 0);
 
   --Internal signals
-  --signal sigOpcode      : std_logic_vector(6 downto 0);
-  --signal sigFunc3       : std_logic_vector(2 downto 0);
-  signal sigJumpType    : std_logic;
-  signal sigBranchType  : std_logic;
-  signal sigLoadType    : std_logic;
-  signal sigBubbleCount : integer;
+ -- signal sigJumpType   : std_logic;
+  --signal sigBranchType : std_logic;
+ -- signal sigLoadType   : std_logic;
 
 
   --ALU control signals
@@ -71,6 +68,8 @@ architecture arch of decoderBench is
   signal sigBpT2E1 : std_logic;         -- Bypass T+2 E1 enable
   signal sigBpT2E2 : std_logic;         -- Bypass T+2 E2 enable
 
+  signal sigBubbleReq : std_logic;
+
   signal sigClk : std_logic := '0';
   signal sigRst : std_logic;
 
@@ -87,9 +86,9 @@ architecture arch of decoderBench is
 
 
           --Regfile control signals
-          reqRead1 : out   std_logic;   -- Requests a read on regfile
-          reqRead2 : out   std_logic;   -- Requests a second read on regfile
-          reqWrite : out   std_logic;   -- Requests a write on regfile
+          reqRead1 : inout   std_logic;   -- Requests a read on regfile
+          reqRead2 : inout   std_logic;   -- Requests a second read on regfile
+          reqWrite : inout   std_logic;   -- Requests a write on regfile
           rs1      : inout std_logic_vector(4 downto 0);
           rs2      : inout std_logic_vector(4 downto 0);
           rd       : inout std_logic_vector(4 downto 0);
@@ -111,6 +110,9 @@ architecture arch of decoderBench is
           bpT1E2 : out std_logic;       -- Bypass T+1 E2 enable
           bpT2E1 : out std_logic;       -- Bypass T+2 E1 enable
           bpT2E2 : out std_logic;       -- Bypass T+2 E2 enable
+
+          bubbleReq : out std_logic;
+          
 
           clk : in std_logic;
           rst : in std_logic
@@ -144,6 +146,7 @@ begin  -- architecture arch
               bpT1E2     => sigBpT1E2,
               bpT2E1     => sigBpT2E1,
               bpT2E2     => sigBpT2E2,
+              bubbleReq  => sigBubbleReq,
               clk        => sigClk,
               rst        => sigRst
               );
@@ -154,15 +157,15 @@ begin  -- architecture arch
 
   begin
 
-    sigRst <= '1';
-
-    wait for 40 ns;
-
     sigRst <= '0';
+
+    wait for 30 ns;
+
+    sigRst <= '1';
 
     wait until sigClk'event and sigClk = '1';
     --LUI imm -> r4
-    sigCode <= "00000000000111000111001000110111";
+    sigCode <= "00000000000000000000001000110111";
 
     wait until sigClk'event and sigClk = '1';
     --AUIPC imm -> r12
@@ -181,7 +184,7 @@ begin  -- architecture arch
     sigCode <= "00000000000000100101100000000011";
 
     wait until sigClk'event and sigClk = '1';
-    --SW r3 r10
+    --SW r3 r12
     sigCode <= "00000000110000011010000000100011";
 
     wait until sigClk'event and sigClk = '1';
