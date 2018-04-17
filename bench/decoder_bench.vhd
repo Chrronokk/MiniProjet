@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-29
--- Last update: 2018-04-16
+-- Last update: 2018-04-17
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -32,9 +32,8 @@ architecture arch of decoderBench is
 
   signal sigCode : std_logic_vector(31 downto 0);
 
-  --Internal signals
   -- signal sigJumpType   : std_logic;
-  --signal sigBranchType : std_logic;
+  -- signal sigBranchType : std_logic;
   -- signal sigLoadType   : std_logic;
 
 
@@ -49,7 +48,7 @@ architecture arch of decoderBench is
   signal sigRs1      : std_logic_vector(4 downto 0);
   signal sigRs2      : std_logic_vector(4 downto 0);
   signal sigRd       : std_logic_vector(4 downto 0);
-  signal sigSelRegIn : std_logic;  -- Selects which signal writes into the regfile
+  signal sigSelRegIn : std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
 
   --Memory control signals
   signal sigMem_access : std_logic;     -- Requests an access to the memory
@@ -61,6 +60,7 @@ architecture arch of decoderBench is
   --Unclassified control signals
   signal sigAluE1Sel : std_logic_vector(2 downto 0);  -- Selects which signal enters E1
   signal sigAluE2Sel : std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+  signal sigJBsel    : std_logic;
 
   --Bypass control signals
   signal sigBpT1E1 : std_logic;         -- Bypass T+1 E1 enable
@@ -68,7 +68,8 @@ architecture arch of decoderBench is
   signal sigBpT2E1 : std_logic;         -- Bypass T+2 E1 enable
   signal sigBpT2E2 : std_logic;         -- Bypass T+2 E2 enable
 
-  signal sigBubbleReq : std_logic;
+  signal sigBubbleReq   : std_logic;
+  signal sigPanicBubble : std_logic;
 
   signal sigClk : std_logic := '0';
   signal sigRst : std_logic;
@@ -92,7 +93,7 @@ architecture arch of decoderBench is
           rs1      : inout std_logic_vector(4 downto 0);
           rs2      : inout std_logic_vector(4 downto 0);
           rd       : inout std_logic_vector(4 downto 0);
-          selRegIn : out   std_logic;  -- Selects which signal writes into the regfile
+          selRegIn : out   std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
 
           --Memory control signals
           mem_access : out std_logic;   -- Requests an access to the memory
@@ -104,6 +105,8 @@ architecture arch of decoderBench is
           --Unclassified control signals
           aluE1Sel : out std_logic_vector(2 downto 0);  -- Selects which signal enters E1
           aluE2Sel : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+          JBsel    : out std_logic;
+
 
           --Bypass control signals
           bpT1E1 : out std_logic;       -- Bypass T+1 E1 enable
@@ -111,7 +114,8 @@ architecture arch of decoderBench is
           bpT2E1 : out std_logic;       -- Bypass T+2 E1 enable
           bpT2E2 : out std_logic;       -- Bypass T+2 E2 enable
 
-          bubbleReq : out std_logic;
+          bubbleReq   : out std_logic;
+          panicBubble : out std_logic;
 
 
           clk : in std_logic;
@@ -127,28 +131,30 @@ begin  -- architecture arch
   
 
   dec1 : decoder
-    port map (code       => sigCode,
-              aluSel     => sigAluSel,
-              reqRead1   => sigReqRead1,
-              reqRead2   => sigReqRead2,
-              reqWrite   => sigReqWrite,
-              rs1        => sigRs1,
-              rs2        => sigRs2,
-              rd         => sigRd,
-              selRegIn   => sigSelRegIn,
-              mem_access => sigMem_access,
-              memRW      => sigMemRW,
-              memSize    => sigMemSize,
-              memSign    => sigMemSign,
-              aluE1Sel   => sigAluE1Sel,
-              aluE2Sel   => sigAluE2Sel,
-              bpT1E1     => sigBpT1E1,
-              bpT1E2     => sigBpT1E2,
-              bpT2E1     => sigBpT2E1,
-              bpT2E2     => sigBpT2E2,
-              bubbleReq  => sigBubbleReq,
-              clk        => sigClk,
-              rst        => sigRst
+    port map (code        => sigCode,
+              aluSel      => sigAluSel,
+              reqRead1    => sigReqRead1,
+              reqRead2    => sigReqRead2,
+              reqWrite    => sigReqWrite,
+              rs1         => sigRs1,
+              rs2         => sigRs2,
+              rd          => sigRd,
+              selRegIn    => sigSelRegIn,
+              mem_access  => sigMem_access,
+              memRW       => sigMemRW,
+              memSize     => sigMemSize,
+              memSign     => sigMemSign,
+              aluE1Sel    => sigAluE1Sel,
+              aluE2Sel    => sigAluE2Sel,
+              JBsel       => sigJBsel,
+              bpT1E1      => sigBpT1E1,
+              bpT1E2      => sigBpT1E2,
+              bpT2E1      => sigBpT2E1,
+              bpT2E2      => sigBpT2E2,
+              bubbleReq   => sigBubbleReq,
+              panicBubble => sigPanicBubble,
+              clk         => sigClk,
+              rst         => sigRst
               );
 
   sigClk <= not(sigClk) after 10 ns;
@@ -218,6 +224,10 @@ begin  -- architecture arch
     wait until sigClk'event and sigClk = '1';
     --NOP
     sigCode <= "00000000000000000000000000000000";
+
+
+    wait until sigClk'event and sigClk = '1';
+
 
     assert false report "Simulation terminee" severity failure;
     
