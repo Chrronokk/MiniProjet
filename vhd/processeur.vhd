@@ -224,7 +224,7 @@ architecture A of PROCESSEUR is
 
   end component mux5;
 
-  
+
 
   component regFile is
     port (
@@ -242,34 +242,133 @@ architecture A of PROCESSEUR is
       rst : in std_logic;
       clk : in std_logic);
 
-  end  regFile;
+  end regFile;
 
 
   component program_memory is
 
-  port (
-    rst         : in  std_logic;        -- reset
-    pc          : in  std_logic_vector(3 downto 0);   -- ligne à lire
-    instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
+    port (
+      rst         : in  std_logic;      -- reset
+      pc          : in  std_logic_vector(3 downto 0);    -- ligne à lire
+      instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
 
   end component program_memory;
 
   component memoire is
     port (
-    rst        : in  std_logic;         --reset
-    mem_access : in  std_logic;         -- utilisation de la mémoire
-    read_write : in  std_logic;         -- 0 pour read 1 pour write
-    adresse    : in  std_logic_vector(3 downto 0);  -- adresse d'accès mémoire
-    data_in    : in  std_logic_vector(31 downto 0);  -- données à charger dans la mémoire
-    data_out   : out std_logic_vector(31 downto 0);  -- données à charger dans le registre
-    size       : in  std_logic_vector(1 downto 0);  -- signal de sélection des extentions de données
-    sign       : in  std_logic);        -- signal de sélection sur le signe
+      rst        : in  std_logic;       --reset
+      mem_access : in  std_logic;       -- utilisation de la mémoire
+      read_write : in  std_logic;       -- 0 pour read 1 pour write
+      adresse    : in  std_logic_vector(3 downto 0);  -- adresse d'accès mémoire
+      data_in    : in  std_logic_vector(31 downto 0);  -- données à charger dans la mémoire
+      data_out   : out std_logic_vector(31 downto 0);  -- données à charger dans le registre
+      size       : in  std_logic_vector(1 downto 0);  -- signal de sélection des extentions de données
+      sign       : in  std_logic);      -- signal de sélection sur le signe
 
-end component memoire;
+  end component memoire;
+
+  signal instruction1, instruction11, instruction2, instruction3, instruction4, instruction5    : std_logic_vector(31 downto 0);
+  signal pc1, pc2, pc3, pc4, pc5                                                                : std_logic_vector(31 downto 0);
+  signal pc41, pc42, pc43, pc44, pc45                                                           : std_logic_vector(31 downto 0);
+  signal bubbleReq                                                                              : std_logic;
+  signal aluSel, aluSel2                                                                        : std_logic_vector(3 downto 0);
+  signal reqRead1,reqRead12, reqRead2,reqRead22, reqWrite,reqWrite selRegIn                                                 : std_logic;
+  signal rs1, rs2, rd                                                                           : std_logic_vector(4 downto 0);
+  signal mem_access, mem_acces2, mem_acces3, memRW, memRW2, memRW3, memSign, memSign2, memSign3 : std_logic;
+  signal memSize, memSize2, memSize3                                                            : std_logic_vector(1 downto 0);
+  signal aluE1Sel, aluE1Sel2                                                                    : std_logic_vector(2 downto 0);
+  signal aluE2Sel, aluE2Sel2                                                                    : std_logic_vector(1 downto 0);
+  signal bpT1E1, bpT1E2, bpT2E1, bpT2E2, bpT1E12, bpT1E22, bpT2E12, bpT2E22                     : std_logic;
+
 
 
 begin  -- architecture A
 
-U1 : 
+
+  --Fetch
+
+  U1 : program_memory port map (
+    rst         => rst,
+    pc          => pc1,
+    instruction => instruction1);
+
+  U2 : inc port map (
+    pc  => pc1,
+    npc => pc41);
+
+  U3 : mux2 port map (
+    a   => instruction1,
+    b   => nop,
+    sel => bubleReq,
+    s   => instruction11);
+
+  U4 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => instruction11,
+    output => instruction2);
+
+
+  U5 : bascule32 port map (
+    CLK    => CLK,
+    rst    => rst,
+    input  => pc1,
+    output => pc2);
+
+  U6 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => pc41,
+    output => pc42);
+
+  
+
+    
+
+--Decodeur
+
+  U : decoder port map (
+    code       => instruction2,
+    clk        => clk,
+    rst        => rst,
+    alusel     => alusel,
+    reqRead1   => reqRead1,
+    reqRead2   => reqRead2,
+    reqWrite   => reqWrite,
+    rs1        => rs1,
+    rs2        => rs2,
+    rd         => rd,
+    selRegIn   => selRegIn,
+    mem_access => mem_access,
+    memRW      => memRW,
+    memSize    => memSize,
+    memsign    => memSign,
+    aluE1Sel   => aluE1Sel,
+    aluE2Sel   => aluE2Sel,
+    bpT1E1     => bpT1E1,
+    bpT1E2     => bpT1E2,
+    bpT2E1     => bpT2E1,
+    bpT2E2     => bpT2E2,
+    bubbleReq  => bubbleReq);
+
+  U8: bascule32 port map (
+    clk => clk,
+    rst => rst,
+    input => instruction2,
+    output => instruction3);
+
+  U9 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => pc2,
+    output => pc3);
+
+  U10 : 
+
+
+
+
+
+
 
 end architecture A;

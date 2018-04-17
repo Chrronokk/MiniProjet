@@ -9,6 +9,7 @@ entity bascule32 is
     input  : in  std_logic_vector(31 downto 0);
     output : out std_logic_vector(31 downto 0));
 
+
 end entity bascule32;
 
 architecture A of bascule32 is
