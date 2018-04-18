@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-17
+-- Last update: 2018-04-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ entity decoder is
         bpT2E2 : out std_logic;         -- Bypass T+2 E2 enable
 
         bubbleReq   : out   std_logic;  --Requests a bubble generation for next cycle
-        panicBubble : inout std_logic := '0'
+        panicBubble : inout std_logic
 
         );
 
@@ -89,10 +89,10 @@ architecture arch of decoder is
   signal branchType : std_logic;
   signal jumpType   : std_logic;
 
-begin  -- architecture str
+begin  -- architecture str  
 
 
-
+  panicBubble <= '0';
 
 
   -- purpose: Initializes the value of rs1,rs2,rd
@@ -154,7 +154,7 @@ begin  -- architecture str
     memSign    <= '1';
 
     --MUX
-    aluE1Sel <= '1';
+    aluE1Sel <= "011";
     aluE2Sel <= "00";
     JBSel    <= '0';
 
@@ -193,10 +193,10 @@ begin  -- architecture str
     if panicBubble = '1' then
       --NOP Control signals
       reqRead2 <= '0';
-      aluE2Sel <= '1';
-      aluE1Sel <
+      aluE2Sel
+        aluE1Sel
 
-        
+
     else
       case opcode is
 
@@ -220,17 +220,19 @@ begin  -- architecture str
             when others =>
               null;
           end case;
-          
+
         when "1101111" =>               --JAL
           jumpType <= '1';
           aluSel   <= "0000";
           reqRead1 <= '0';
           reqRead2 <= '0';
+          aluE1Sel <= "010";
           selRegIn <= "10";
         when "1100111" =>               --JALR
           jumpType <= '1';
           aluSel   <= "1110";
           reqRead2 <= '0';
+          aluE1Sel <= "010";
           selRegIn <= "10";
         when "0110111" =>               --LUI
           aluSel   <= "0000";
@@ -240,15 +242,15 @@ begin  -- architecture str
         when "0010111" =>               --AUIPC
           reqRead1 <= '0';
           reqRead2 <= '0';
-          aluE1Sel <= '0';
+          aluE1Sel <= "001";
           aluE2Sel <= "01";
-          
+
         when "0000011" =>               --Load type
           LoadType   <= '1';
           reqRead2   <= '0';
+          aluE1Sel   <= "101";
           mem_access <= '1';
           selRegIn   <= "01";
-          aluE2Sel <= "10";
           case func3 is
             when "000" =>               --LB
             when "001" =>               --LH
@@ -263,11 +265,11 @@ begin  -- architecture str
             when others =>
               null;
           end case;
-          
+
         when "0100011" =>               --Store type
           reqWrite   <= '0';
+          aluE1Sel   <= "100";
           mem_access <= '1';
-          aluE2Sel <= "11";
           memRW      <= '1';
           case func3 is
             when "000" =>               -- SB
@@ -278,20 +280,24 @@ begin  -- architecture str
             when others =>
               null;
           end case;
-          
+
         when "0010011" =>               --I_imm type
           reqRead2 <= '0';
-          aluE2Sel <="10";
           case func3 is
             when "000" =>               -- ADDI
+              aluE1Sel <= "101";
             when "001" =>               -- SLLI
               aluSel   <= "0110";
+              aluE2Sel <= "01";
             when "010" =>               -- SLTI
               aluSel   <= "1011";
+              aluE1Sel <= "001";
             when "011" =>               -- SLTIU
               aluSel   <= "1101";
+              aluE1Sel <= "001";
             when "100" =>               -- XORI
               aluSel   <= "0101";
+              aluE1Sel <= "001";
             when "101" =>
               aluE2Sel <= "01";
               if code(30) = '0' then    --SRLI
@@ -299,11 +305,13 @@ begin  -- architecture str
               else                      --SRAI
                 aluSel <= "1000";
               end if;
-              
+
             when "110" =>               -- ORI
               aluSel   <= "0100";
+              aluE1Sel <= "001";
             when "111" =>               -- ANDI
               aluSel   <= "0011";
+              aluE1Sel <= "001";
             when others =>
               null;
           end case;
@@ -335,12 +343,12 @@ begin  -- architecture str
             when others =>
               null;
           end case;
-          
+
         when others =>
           null;
       end case;
     end if;
-    
+
   end process decode;
 
 
@@ -363,7 +371,7 @@ begin  -- architecture str
 
       loadTypePrev2 <= loadTypePrev;
       loadTypePrev  <= loadType;
-      
+
     end if;
   end process updateSeq;
 
@@ -400,9 +408,9 @@ begin  -- architecture str
       bpT2E2 <= '0';
     end if;
 
-    
+
   end process enableBP;
-  
+
 end arch;
 
 

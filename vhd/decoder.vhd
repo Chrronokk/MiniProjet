@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-17
+-- Last update: 2018-04-18
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ entity decoder is
         bpT2E2 : out std_logic;         -- Bypass T+2 E2 enable
 
         bubbleReq   : out   std_logic;  --Requests a bubble generation for next cycle
-        panicBubble : inout std_logic := '0'
+        panicBubble : inout std_logic 
 
         );
 
@@ -89,10 +89,10 @@ architecture arch of decoder is
   signal branchType : std_logic;
   signal jumpType   : std_logic;
 
-begin  -- architecture str
+begin  -- architecture str  
 
 
-
+  panicBubble <= '0'
 
 
   -- purpose: Initializes the value of rs1,rs2,rd

@@ -41,41 +41,41 @@ begin  -- architecture Arch
       when "1000" =>
         sortie(31)                                                <= a(31);
         sortie((31-to_integer(unsigned(b(4 downto 0)))) downto 0) <= a(31 downto to_integer(unsigned(b(4 downto 0))));  --décalage à droite arithmétique 
-      when "1001" =>
+      when "1001" => --égalité
         if(a = b) then
           sortie(0) <= '1';
         else
           sortie <= (others => '0');
-        end if;  --égalité
-      when "1010" =>
+        end if;  
+      when "1010" => --plus grand que ou égal signed
         if(signed(a) >= signed(b)) then
           sortie(0) <= '1';
         else
           sortie <= (others => '0');
-        end if;  --plus grand que ou égal signed
-      when "1011" =>
+        end if;  
+      when "1011" => --plus petit que signed
         if(signed(a) < signed(b)) then
           sortie(0) <= '1';
         else
           sortie <= (others => '0');
-        end if;  --plus petit que signed
-      when "1100" =>
+        end if;  
+      when "1100" => --plus grand que ou égal unsigned
         if(unsigned(a) >= unsigned(b)) then
           sortie(0) <= '1';
         else
           sortie <= (others => '0');
-        end if;  --plus grand que ou égal unsigned
-      when "1101" =>
+        end if;  
+      when "1101" => --plus petit que unsigned
         if(unsigned(a) < unsigned(b)) then
           sortie(0) <= '1';
         else
           sortie <= (others => '0');
-        end if;  --plus petit que unsigned
+        end if;  
       when "1110" =>
         sortie <= std_logic_vector(unsigned(a)+unsigned(b));  --addition
         sortie(0)<= '0';                --clear lsb
       when others =>
-        sortie <= a;
+        sortie <= b;
     end case;
   end process comb;
 
