@@ -174,7 +174,7 @@ begin  -- architecture arch
     --JALR r8->r20
     sigCode <= "00000000000001000000101001100111";
 
-     wait until sigClk'event and sigClk = '1';
+    wait until sigClk'event and sigClk = '1';
     --SLL r5,r12 -> r21
     sigCode <= "00000000010101100001101010110011";
 
