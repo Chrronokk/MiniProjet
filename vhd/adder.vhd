@@ -21,7 +21,7 @@ begin  -- architecture A
   comb : process (pc, jump) is
   begin  -- process comb
     next_pc <= (others => '0');
-    next_pc <= std_logic_vector(unsigned(pc)+unsigned(jump));
+    next_pc <= std_logic_vector(signed(pc)+signed(jump));
   end process comb;
 
 end architecture A;
