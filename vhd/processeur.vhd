@@ -281,9 +281,17 @@ architecture A of PROCESSEUR is
   signal memSize                                : std_logic_vector(1 downto 0);
   signal aluE1Sel                               : std_logic;
   signal aluE2Sel                               : std_logic_vector(1 downto 0);
-  signal PCsel                           : std_logic;
+<<<<<<< HEAD
+  signal PCsel, JBsel                           : std_logic;
+  signal aluE1Sel                               : std_logic;
+  signal aluE2Sel                               : std_logic_vector(1 downto 0);
 
-  --Execute
+=======
+  signal PCsel                           : std_logic;
+>>>>>>> 02e25886264bfd0e622bcd1bedd84b8e262300d4
+
+
+--Execute
 
   signal instruction3                               : std_logic_vector(31 downto 0);
   signal pc3, pc43                                  : std_logic_vector(31 downto 0);
@@ -293,7 +301,6 @@ architecture A of PROCESSEUR is
   signal memSize2                                   : std_logic_vector(1 downto 0);
   signal aluE1Sel2                                  : std_logic;
   signal aluE2Sel2                                  : std_logic_vector(1 downto 0);
-  signal bpT1E12, bpT1E22, bpT2E12, bpT2E22         : std_logic;
   signal s_imm, i_imm, u_imm, b_imm, j_imm          : std_logic_vector(31 downto 0);
   signal Reg1, Reg2, R1, R2, E1, E2                 : std_logic_vector(31 downto o);
   signal aluOut                                     : std_logic_vector(31 downto 0);
@@ -302,21 +309,23 @@ architecture A of PROCESSEUR is
 
   --Memory
 
-  signal instruction4                  : std_logic_vector(31 downto 0);
-  signal pc4, pc44                     : std_logic_vector(31 downto 0);
-  signal selRegIn3                     : std_logic;
-  signal mem_acces3s, memRW3, memSign3 : std_logic;
-  signal memSize3                      : std_logic_vector(1 downto 0);
-  signal result1                       : std_logic_vector(31 downto 0);
+  signal instruction4                   : std_logic_vector(31 downto 0);
+  signal pc4, pc44                      : std_logic_vector(31 downto 0);
+  signal selRegIn3                      : std_logic;
+  signal mem_acces3s, memRW3, memSign3  : std_logic;
+  signal memSize3                       : std_logic_vector(1 downto 0);
+  signal result1, resultMemory, resultW : std_logic_vector(31 downto 0);
+  signal reqWrite3                      : std_logic;
+  signal R22                            : std_logic_vector(31 downto 0);
 
 
 
   -- Writeback
 
-  signal instruction5 : std_logic_vector(31 downto 0);
-  signal pc5, pc45    : std_logic_vector(31 downto 0);
-  signal result2      : std_logic_vector(31 dataIn 0);
-
+  signal instruction5         : std_logic_vector(31 downto 0);
+  signal pc5, pc45            : std_logic_vector(31 downto 0);
+  signal result2              : std_logic_vector(31 dataIn 0);
+  signal reqWrite4, selRegIn4 : std_logic;
 
 begin  -- architecture A
 
@@ -550,6 +559,7 @@ begin  -- architecture A
     codeInstWrite => instrction5,
     reqRead1      => reqRead12,
     reqRead2      => reqRead22,
+    reqWrite      => reqWrite4,
     dataIn        => result2,
     dataOut1      => Reg1,
     dataOut2      => Reg2,
@@ -652,47 +662,108 @@ begin  -- architecture A
   U46 : bascule32 port map (
     clk    => clk,
     rst    => rst,
-    input  => pc3,
-    output => pc4);
-
-
-  U47 : bascule32 port map (
-    clk    => clk,
-    rst    => rst,
     input  => pc43,
     output => pc44);
 
 
-  U48 : bascule2 port map (
+  U47 : bascule2 port map (
     clk    => clk,
     rst    => rst,
     input  => memSize2,
     output => memSize3);
 
 
-  U49 : bascule1 port map (
+  U48 : bascule1 port map (
     clk    => clk,
     rst    => rst,
     input  => mem_access2,
     output => mem_acces3);
 
 
-  U50 : bascule1 port map (
+  U49 : bascule1 port map (
     clk    => clk,
     rst    => rst,
     input  => memRW2,
     output => memRW3);
 
 
-  U51 : bascule1 port map (
+  U50 : bascule1 port map (
     clk    => clk,
     rst    => rst,
     input  => memSign2,
     output => memSign3);
 
 
--- 
+  U51 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => R2,
+    output => R22);
 
+  U52 : bascule1 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => reqWrite2,
+    output => reqWrite3);
+
+
+  U53 : bascule1 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => selRegIn2,
+    output => selRegIn3);
+
+
+  -- Memory
+
+  U54 : memoire port map (
+    rst        => rst,
+    mem_access => mem_access3,
+    read_write => memRW3,
+    adresse    => result1,
+    dataIn     => R22,
+    data_out   => resultMemory,
+    size       => memSize3,
+    sign       => memSign3);
+
+
+  U55 : mux3 port map (
+    a   => result1,
+    b   => resultMemory,
+    c   => pc44,
+    sel => selRegIn3,
+    s   => resultW);
+
+
+
+  U56 : bascule1 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => reqWrite3,
+    output => reqWrite4);
+
+
+  U57 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => instruction4,
+    output => instruction5);
+
+
+
+  U58 : bascule1 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => reqWrite2,
+    output => reqWrite3);
+
+
+
+  U59 : bascule32 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => resultW,
+    output => result2);
 
 
 
