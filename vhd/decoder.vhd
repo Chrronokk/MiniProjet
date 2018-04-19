@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-18
+-- Last update: 2018-04-19
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -39,6 +39,12 @@ entity decoder is
         reqRead2 : inout std_logic;     -- Requests a second read on regfile
         reqWrite : inout std_logic;     -- Requests a write on regfile
 
+
+
+
+
+
+        
         selRegIn : out std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
 
         --Memory control signals
@@ -361,7 +367,13 @@ begin  -- architecture str
   updateSeq : process (clk, rst) is
   begin  -- process updateSeq
     if rst = '0' then                   -- asynchronous reset (active low)
-      null;
+      prev_write_1 <= "00000";
+      prev_write_2 <= "00000";
+      loadTypePrev <= '0';
+      loadTypePrev2 <= '0';
+
+
+      
     elsif clk'event and clk = '1' then  -- rising clock edge
 
 

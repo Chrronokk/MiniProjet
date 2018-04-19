@@ -8,7 +8,7 @@ entity program_memory is
 
   port (
     rst         : in  std_logic;        -- reset
-    pc          : in  std_logic_vector(3 downto 0);   -- ligne à lire
+    pc          : in  std_logic_vector(31 downto 0);   -- ligne à lire
     instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
 
 end entity program_memory;

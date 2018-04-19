@@ -2,16 +2,16 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity J_type_sext is
+entity Jtype_sext is
   
   port (
     input  : in  std_logic_vector(31 downto 0);  --code de l'instructionen entrée
     output : out std_logic_vector(31 downto 0));  -- immédiat en sign extended
 
-end entity J_type_sext;
+end entity Jtype_sext;
 
 
-architecture A of J_type_sext is
+architecture A of Jtype_sext is
 
 begin  -- architecture A
 

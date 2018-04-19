@@ -9,7 +9,7 @@ entity memoire is
     rst        : in  std_logic;         --reset
     mem_access : in  std_logic;         -- utilisation de la mémoire
     read_write : in  std_logic;         -- 0 pour read 1 pour write
-    adresse    : in  std_logic_vector(3 downto 0);  -- adresse d'accès mémoire
+    adresse    : in  std_logic_vector(31 downto 0);  -- adresse d'accès mémoire
     data_in    : in  std_logic_vector(31 downto 0);  -- données à charger dans la mémoire
     data_out   : out std_logic_vector(31 downto 0);  -- données à charger dans le registre
     size       : in  std_logic_vector(1 downto 0);  -- signal de sélection des extentions de données
@@ -47,7 +47,7 @@ begin  -- architecture
         data_out <= (others => '0');
         if read_write = '0' then        -- lecture
           if size = "01" then           -- 8 bits
-            if sign = '0' then          
+            if sign = '0' then
               data_out(7 downto 0) <= memory(to_integer(unsigned(adresse)))(7 downto 0);
             else
               data_out(31)         <= memory(to_integer(unsigned(adresse)))(7);
