@@ -13,12 +13,12 @@ end entity bascule3;
 
 architecture A of bascule3 is
 begin
-  process (clk, input, rst) is
+ process (clk, input, rst) is
   begin
-    if rising_edge(clk) then
-      if (rst = '0') then
-        output <= (others => '0');
-      else
+    if (rst = '0') then
+      output <= (others => '0');
+    else 
+      if rising_edge(clk) then
         output <= input;
       end if;
     end if;
