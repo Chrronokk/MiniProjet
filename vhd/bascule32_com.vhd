@@ -17,11 +17,11 @@ architecture A of bascule32_com is
 begin
   process (clk, input, rst, commande) is
   begin
-    if (commande = '0') then
-      if rising_edge(clk) then
-        if rst = '0' then
-          output <= (others => '0');
-        else
+    if rst = '0' then
+      output <= (others => '0');
+    else
+      if (commande = '0') then
+        if rising_edge(clk) then
           output <= input;
         end if;
       end if;
