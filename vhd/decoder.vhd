@@ -39,7 +39,7 @@ entity decoder is
         reqRead2 : inout std_logic;     -- Requests a second read on regfile
         reqWrite : inout std_logic;     -- Requests a write on regfile
 
-        selRegIn : out   std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
+        selRegIn : out std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
 
         --Memory control signals
         mem_access : out std_logic;     -- Requests an access to the memory
@@ -49,20 +49,17 @@ entity decoder is
 
 
         --Unclassified control signals
-        aluE1Sel : out std_logic;       -- Selects which signal enters E1
-        aluE2Sel : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-        JBsel    : out std_logic;
-        pcSel    : out std_logic_vector(1 downto 0);  --Defines how the next PC is calculated
-        pcCom    : out std_logic_vector(1 downto 0);  --Defines which PC value is next
+        aluE1Sel  : out std_logic;      -- Selects which signal enters E1
+        aluE2Sel  : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+        JBsel     : out std_logic;
+        pcSel     : out std_logic;      --Defines how the next PC is calculated
+        jalr_Type : out std_logic;
+
+        bpE1 : out std_logic_vector(1 downto 0);
+        bpE2 : out std_logic_vector(1 downto 0);
 
 
-        --Bypass control signals
-        bpT1E1 : out std_logic;         -- Bypass T+1 E1 enable
-        bpT1E2 : out std_logic;         -- Bypass T+1 E2 enable
-        bpT2E1 : out std_logic;         -- Bypass T+2 E1 enable
-        bpT2E2 : out std_logic;         -- Bypass T+2 E2 enable
-
-        bubbleReq   : inout   std_logic;  --Requests a bubble generation for next cycle
+        bubbleReq   : inout std_logic;  --Requests a bubble generation for next cycle
         panicBubble : inout std_logic := '0'
 
         );
@@ -92,6 +89,14 @@ architecture arch of decoder is
   signal bpT2E2next : std_logic;
   signal branchType : std_logic;
   signal jumpType   : std_logic;
+
+
+  --Bypass control signals
+
+  signal bpT1E1 : std_logic;            -- Bypass T+1 E1 enable
+  signal bpT1E2 : std_logic;            -- Bypass T+1 E2 enable
+  signal bpT2E1 : std_logic;            -- Bypass T+2 E1 enable
+  signal bpT2E2 : std_logic;            -- Bypass T+2 E2 enable
 
 begin  -- architecture str
 
@@ -131,8 +136,8 @@ begin  -- architecture str
 
 
 
-  decode : process(branchType, code, func3, jumpType, loadTypePrev2, opcode,
-                   prev_write_2, rs1, rs2) is  --Process combinatoire de décodage
+  decode : process(branchType, bubbleReq, code, func3, jumpType, loadTypePrev2,
+                   opcode, panicBubble, prev_write_2, rs1, rs2) is  --Process combinatoire de décodage
 
   begin
 
@@ -141,6 +146,7 @@ begin  -- architecture str
     jumpType   <= '0';
     branchType <= '0';
     loadType   <= '0';
+    jalr_type  <= '0';
 
     --Regfile
     reqWrite <= '1';
@@ -173,9 +179,9 @@ begin  -- architecture str
 
 
 
-    if loadTypePrev2 = '1' and rs1 = prev_write_2 then
+    if loadTypePrev = '1' and rs1 = prev_write_1 then
       panicBubble <= '1';
-    elsif loadTypePrev2 = '1' and rs2 = prev_write_2 then
+    elsif loadTypePrev = '1' and rs2 = prev_write_1 then
       panicBubble <= '1';
     else
       panicBubble <= '0';
@@ -184,13 +190,9 @@ begin  -- architecture str
 
 
     if panicBubble = '1' or bubbleReq = '1' then
-      pcSel <= "00";
-    elsif jumpType = '1' then
-      pcSel <= "01";
-    elsif branchType = '1' then
-      pcSel <= "10";
+      pcSel <= '1';
     else
-      pcSel <= "11";
+      pcSel <= '0';
     end if;
 
 
@@ -232,11 +234,12 @@ begin  -- architecture str
           reqRead2 <= '0';
           selRegIn <= "10";
         when "1100111" =>               --JALR
-          jumpType <= '1';
-          aluSel   <= "1110";
-          aluE2Sel <= "01";
-          reqRead2 <= '0';
-          selRegIn <= "10";
+          jumpType  <= '1';
+          jalr_type <= '1';
+          aluSel    <= "1110";
+          aluE2Sel  <= "01";
+          reqRead2  <= '0';
+          selRegIn  <= "10";
         when "0110111" =>               --LUI
           aluSel   <= "0000";
           reqRead1 <= '0';
@@ -377,8 +380,9 @@ begin  -- architecture str
   -- purpose: Send control signals to BP MUX
   -- type   : combinational
   -- inputs : 
-  -- outputs: BpTxEx
-  enableBP : process (prev_write_1, prev_write_2, rs1, rs2)
+  -- outputs: BpEx
+  enableBP : process (bpT1E1, bpT1E2, bpT2E1, bpT2E2, prev_write_1,
+                      prev_write_2, rs1, rs2)
   begin  -- process enableBP
 
     if rs1 = prev_write_1 and rs1 /= "00000" then
@@ -405,6 +409,32 @@ begin  -- architecture str
       bpT2E2 <= '0';
     end if;
 
+
+    if bpT1E1 = '0' and bpT2E1 = '0' then
+      bpE1 <= "00";
+    elsif bpT1E1 = '1' and bpT2E1 = '0' then
+      bpE1 <= "01";
+    elsif bpT1E1 = '0' and bpT2E1 = '1' then
+      bpE1 <= "10";
+    else
+      bpE1 <= "01";
+    end if;
+
+    if bpT1E2 = '0' and bpT2E2 = '0' then
+      bpE2 <= "00";
+    elsif bpT1E2 = '1' and bpT2E2 = '0' then
+      bpE2 <= "01";
+    elsif bpT1E2 = '0' and bpT2E2 = '1' then
+      bpE2 <= "10";
+    else
+      bpE2 <= "01";
+    end if;
+
+    
+    
+    
+    
+    
     
   end process enableBP;
   

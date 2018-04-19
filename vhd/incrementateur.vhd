@@ -12,13 +12,13 @@ end entity inc;
 
 architecture A of inc is
 
-  constant inc : std_logic_vector(31 downto 0) : "00000000000000000000000000000100";  -- inc
+  constant inc : std_logic_vector(31 downto 0) := "00000000000000000000000000000100";  -- inc
 
 begin  -- architecture A
 
   combi : process (pc) is
   begin  -- process combi
-    npc = pc + inc;
+    npc <= std_logic_vector(unsigned(pc) + unsigned(inc));
   end process combi;
 
 end architecture A;

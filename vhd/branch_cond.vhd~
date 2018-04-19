@@ -18,7 +18,7 @@ architecture arch of CondTest is
 begin  -- arch
 
 
-  testCond : process(JBsel, aluLSB)
+  testCond : process
   begin  -- process testCond
 
     if JBsel = '0' or aluLSB = '1' then

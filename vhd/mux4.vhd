@@ -14,12 +14,14 @@ end entity mux4;
 
 architecture A of mux4 is
 
-  s <= (others => '0');
+ 
 
 begin  -- architecture A 
 
   combi : process (a, b, c, d, sel) is
   begin  -- process combi
+
+ s <= (others => '0');
     case sel is
       when "00" =>
         s <= a;
@@ -27,7 +29,7 @@ begin  -- architecture A
         s <= b;
       when "10" =>
         s <= c;
-      when "11" =>
+      when others =>
         s <= d;
     end case;
   end process combi;

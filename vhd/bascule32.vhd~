@@ -18,9 +18,9 @@ begin
   begin
     if rising_edge(clk) then
       if (rst = '0') then
-        output <= (others => '0');
+        q <= (others => '0');
       else
-        output <= input;
+        q <= d;
       end if;
     end if;
   end process;

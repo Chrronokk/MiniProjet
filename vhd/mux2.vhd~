@@ -14,15 +14,24 @@ end entity mux2;
 
 architecture A of mux2 is
 
-  s <= (others => '0');
+  
 
-begin  -- architecture A 
+begin  -- architecture A
 
-  case sel is
-    when => '0';
-    s <=a;
-    when => '1';
-    s <=b;
-  end case;
+
+
+  combi : process (a, b, sel) is
+  begin  -- process combi
+
+
+    s <= (others => '0');
+
+    case sel is
+      when '0' =>
+        s <=a;
+      when '1' =>
+        s <=b;
+    end case;
+  end process combi;
 
 end architecture A;

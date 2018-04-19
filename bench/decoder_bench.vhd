@@ -55,15 +55,16 @@ architecture arch of decoderBench is
 
 
   --Unclassified control signals
-  signal sigAluE1Sel : std_logic;       -- Selects which signal enters E1
-  signal sigAluE2Sel : std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-  signal sigJBsel    : std_logic;
+  signal sigAluE1Sel  : std_logic;      -- Selects which signal enters E1
+  signal sigAluE2Sel  : std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+  signal sigJBsel     : std_logic;
+  signal sigPcSel     : std_logic;
+  signal sigJalr_type : std_logic;
 
   --Bypass control signals
-  signal sigBpT1E1 : std_logic;         -- Bypass T+1 E1 enable
-  signal sigBpT1E2 : std_logic;         -- Bypass T+1 E2 enable
-  signal sigBpT2E1 : std_logic;         -- Bypass T+2 E1 enable
-  signal sigBpT2E2 : std_logic;         -- Bypass T+2 E2 enable
+  signal sigBpE1 : std_logic_vector(1 downto 0);  -- Bypass  E1 enable
+  signal sigBpE2 : std_logic_vector(1 downto 0);  -- Bypass  E2 enable
+
 
   signal sigBubbleReq   : std_logic;
   signal sigPanicBubble : std_logic;
@@ -97,18 +98,17 @@ architecture arch of decoderBench is
 
 
           --Unclassified control signals
-          aluE1Sel : out std_logic;     -- Selects which signal enters E1
-          aluE2Sel : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-          JBsel    : out std_logic;
-          pcSel    : out std_logic_vector(1 downto 0);  --Defines how the next PC is calculated
-          pcCom    : out std_logic_vector(1 downto 0);  --Defines which PC value is next
+          aluE1Sel  : out std_logic;    -- Selects which signal enters E1
+          aluE2Sel  : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+          JBsel     : out std_logic;
+          pcSel     : out std_logic;
+          jalr_type : out std_logic;
 
 
           --Bypass control signals
-          bpT1E1 : out std_logic;       -- Bypass T+1 E1 enable
-          bpT1E2 : out std_logic;       -- Bypass T+1 E2 enable
-          bpT2E1 : out std_logic;       -- Bypass T+2 E1 enable
-          bpT2E2 : out std_logic;       -- Bypass T+2 E2 enable
+          bpE1 : out std_logic_vector(1 downto 0);  -- Bypass E1 enable
+          bpE2 : out std_logic_vector(1 downto 0);  -- Bypass E2 enable
+
 
           bubbleReq   : inout std_logic;
           panicBubble : inout std_logic;
@@ -140,10 +140,10 @@ begin  -- architecture arch
               aluE1Sel    => sigAluE1Sel,
               aluE2Sel    => sigAluE2Sel,
               JBsel       => sigJBsel,
-              bpT1E1      => sigBpT1E1,
-              bpT1E2      => sigBpT1E2,
-              bpT2E1      => sigBpT2E1,
-              bpT2E2      => sigBpT2E2,
+              jalr_type   => sigJalr_type,
+              bpE1        => sigBpE1,
+              bpE2        => sigBpE2,
+              pcSel       => sigPcSel,
               bubbleReq   => sigBubbleReq,
               panicBubble => sigPanicBubble,
               clk         => sigClk,

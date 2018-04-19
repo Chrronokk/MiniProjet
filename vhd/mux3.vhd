@@ -14,12 +14,14 @@ end entity mux3;
 
 architecture A of mux3 is
 
-  s <= (others => '0');
+  
 
 begin  -- architecture A 
 
   combi : process (a, b, c, sel) is
   begin  -- process combi
+
+s <= (others => '0');
     case sel is
       when "00" =>
         s <= a;

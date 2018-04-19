@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity bascule3 is
+entity bascule4 is
 
   port(
     clk    : in  std_logic;

@@ -10,16 +10,18 @@ entity mux4 is
     sel        : in  std_logic_vector(1 downto 0);    -- selection
     s          : out std_logic_vector(31 downto 0));  -- sortie
 
-end entity mux2;
+end entity mux4;
 
-architecture A of mux2 is
+architecture A of mux4 is
 
-  s <= (others => '0');
+ 
 
 begin  -- architecture A 
 
   combi : process (a, b, c, d, sel) is
   begin  -- process combi
+
+ s <= (others => '0');
     case sel is
       when "00" =>
         s <= a;

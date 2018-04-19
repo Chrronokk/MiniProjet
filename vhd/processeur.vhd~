@@ -72,6 +72,17 @@ architecture A of PROCESSEUR is
 
 
 
+  component bascule3 is
+    port(
+      clk    : in  std_logic;
+      rst    : in  std_logic;
+      input  : in  std_logic_vector(2 downto 0);
+      output : out std_logic_vector(2 downto 0));
+  end component bascule3;
+
+
+
+
   component bascule4 is
     port(
       clk    : in  std_logic;
@@ -83,11 +94,20 @@ architecture A of PROCESSEUR is
 
 
 
+  component bascule5 is
+    port(
+      clk    : in  std_logic;
+      rst    : in  std_logic;
+      input  : in  std_logic_vector(4 downto 0);
+      output : out std_logic_vector(4 downto 0));
+  end component bascule5;
+
+
+
 
   component B_type_sext is
-   port(
-     input  : in  std_logic_vector(31 downto 0);  --code de l'instructionen entrée
-     output : out std_logic_vector(31 downto 0));  -- immédiat en sign extended
+    input  : in  std_logic_vector(31 downto 0);  --code de l'instructionen entrée
+    output : out std_logic_vector(31 downto 0));  -- immédiat en sign extended
   end component B_type_sext;
 
 
@@ -176,7 +196,7 @@ architecture A of PROCESSEUR is
   component mux3 is
     port (
       a, b, c : in  std_logic_vector(31 downto 0);   -- entrées
-      sel     : in  std_logic_vector(1 downto 0);           -- selection
+      sel     : in  std_logic(1 downto 0);           -- selection
       s       : out std_logic_vector(31 downto 0));  -- sortie
   end component mux3;
 
@@ -187,10 +207,21 @@ architecture A of PROCESSEUR is
   component mux4 is
     port (
       a, b, c, d : in  std_logic_vector(31 downto 0);   -- entrées
-      sel        : in  std_logic_vector(1 downto 0);           -- selection
+      sel        : in  std_logic(1 downto 0);           -- selection
       s          : out std_logic_vector(31 downto 0));  -- sortie
   end component mux4;
 
+
+
+
+
+  component mux5 is
+
+    port (
+      a, b, c, d, e : in  std_logic_vector(31 downto 0);   -- entrées
+      sel           : in  std_logic(2 downto 0);           -- selection
+      s             : out std_logic_vector(31 downto 0));  -- sortie
+  end component mux5;
 
 
 
@@ -211,7 +242,7 @@ architecture A of PROCESSEUR is
 
       rst : in std_logic;
       clk : in std_logic);
-  end component regFile;
+  end regFile;
 
 
 
@@ -275,13 +306,14 @@ architecture A of PROCESSEUR is
   signal pc2, pc42                              : std_logic_vector(31 downto 0);
   signal bubbleReq, panicBubble                 : std_logic;
   signal JBsel                                  : std_logic;
-  signal aluSel                                 : std_logic_vector(3 downto 0);
+  signal aluSel                                 : std_logic(3 downto 0);
   signal reqRead1, reqRead2, reqWrite, selRegIn : std_logic;
   signal mem_access, memRW, memSign             : std_logic;
   signal memSize                                : std_logic_vector(1 downto 0);
   signal aluE1Sel                               : std_logic;
   signal aluE2Sel                               : std_logic_vector(1 downto 0);
-  signal PCsel                           : std_logic;
+  signal bpT1E1, bpT1E2, bpT2E1, bpT2E2         : std_logic;
+  signal PCsel, JBsel                           : std_logic;
 
   --Execute
 

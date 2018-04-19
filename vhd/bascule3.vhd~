@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity bascule2 is
+entity bascule3 is
 
   port(
     clk    : in  std_logic;
@@ -9,9 +9,9 @@ entity bascule2 is
     input  : in  std_logic_vector(2 downto 0);
     output : out std_logic_vector(2 downto 0));
 
-end entity bascule2;
+end entity bascule3;
 
-architecture A of bascule1 is
+architecture A of bascule3 is
 begin
   process (clk, input, rst) is
   begin

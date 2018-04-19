@@ -14,12 +14,14 @@ end entity mux5;
 
 architecture A of mux5 is
 
-  s <= (others => '0');
+ 
 
 begin  -- architecture A 
 
   combi : process (a, b, c, d, e, sel) is
   begin  -- process combi
+
+ s <= (others => '0');
     case sel is
       when "000" =>
         s <= a;

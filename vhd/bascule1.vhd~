@@ -20,9 +20,9 @@ begin
   begin
     if rising_edge(clk) then
       if (rst = '0') then
-        output <= '0';
+        q <= '0';
       else
-        output <= input;
+        q <= d;
       end if;
     end if;
   end process;

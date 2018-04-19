@@ -10,9 +10,9 @@ entity mux3 is
     sel     : in  std_logic_vector(1 downto 0);    -- selection
     s       : out std_logic_vector(31 downto 0));  -- sortie
 
-end entity mux2;
+end entity mux3;
 
-architecture A of mux2 is
+architecture A of mux3 is
 
   s <= (others => '0');
 

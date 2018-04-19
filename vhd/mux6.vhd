@@ -14,12 +14,14 @@ end entity mux6;
 
 architecture A of mux6 is
 
-  s <= (others => '0');
+ 
 
 begin  -- architecture A 
 
   combi : process (a, b, c, d, e, f, sel) is
   begin  -- process combi
+
+ s <= (others => '0');
     case sel is
       when "000" =>
         s <= a;

@@ -1,4 +1,4 @@
-alibrary ieee;
+library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
@@ -14,16 +14,22 @@ end entity mux2;
 
 architecture A of mux2 is
 
-  s <= (others => '0');
+  
 
 begin  -- architecture A
 
+
+
   combi : process (a, b, sel) is
   begin  -- process combi
+
+
+    s <= (others => '0');
+
     case sel is
       when '0' =>
         s <=a;
-      when '1' =>
+      when others =>
         s <=b;
     end case;
   end process combi;
