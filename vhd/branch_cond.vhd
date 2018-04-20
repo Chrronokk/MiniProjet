@@ -6,7 +6,7 @@ entity CondTest is
   
   port (
     aluLSB : in  std_logic;
-    JBsel  : in  std_logic;
+    JBsel  : in  std_logic_vector(1 downto 0);
     PCcom  : out std_logic
     );
 
@@ -21,8 +21,10 @@ begin  -- arch
   testCond : process(JBsel, aluLSB)
   begin  -- process testCond
 
-    if JBsel = '0' or aluLSB = '1' then
+    if JBsel = "01" then
       PCcom <= '1';
+    elsif JBsel = "10" and aluLSB = '1' then
+      PCcom <='1';
     else
       PCcom <= '0';
     end if;

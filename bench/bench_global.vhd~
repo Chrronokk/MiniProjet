@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library lib_VHDL;
+use lib_VHDL.all;
+
+entity PROCESSEUR is
+end PROCESSEUR;
+
+architecture simulation of PROCESSEUR is
+
+  signal sigClk : std_logic := '0';
+  signal sigRst : std_logic := '0';
+
+  
+begin  -- simulation
+
+  sigClk <= not sigClk after 10 ns;
+
+  sigRst <= '1' after 20 ns;
+
+            
+            
+end simulation;

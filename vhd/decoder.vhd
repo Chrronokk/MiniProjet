@@ -57,7 +57,7 @@ entity decoder is
         --Unclassified control signals
         aluE1Sel  : out std_logic;      -- Selects which signal enters E1
         aluE2Sel  : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-        JBsel     : out std_logic;
+        JBsel     : out std_logic_vector(1 downto 0);
         pcSel     : out std_logic;      --Defines how the next PC is calculated
         jalr_Type : out std_logic;
 
@@ -172,7 +172,7 @@ begin  -- architecture str
     --MUX
     aluE1Sel <= '1';
     aluE2Sel <= "00";
-    JBSel    <= '0';
+    JBSel    <= "00";
 
 
 
@@ -215,7 +215,7 @@ begin  -- architecture str
         when "1100011" =>               --Branch type
           reqWrite   <= '0';
           branchType <= '1';
-          JBsel      <= '1';
+          JBsel      <= "10";
           case func3 is
             when "000" =>               --BEQ
               aluSel <= "1001";
@@ -234,12 +234,14 @@ begin  -- architecture str
           end case;
           
         when "1101111" =>               --JAL
+          JBsel      <= "01";
           jumpType <= '1';
           aluSel   <= "0000";
           reqRead1 <= '0';
           reqRead2 <= '0';
           selRegIn <= "10";
         when "1100111" =>               --JALR
+          JBsel      <= "01";
           jumpType  <= '1';
           jalr_type <= '1';
           aluSel    <= "1110";

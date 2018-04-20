@@ -7,37 +7,532 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.decoderbench
-# vsim lib_BENCH.decoderbench 
+vsim lib_BENCH.tbprocesseur
+# vsim lib_BENCH.tbprocesseur 
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.decoderbench(arch)#1
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
 # Loading lib_vhdl.decoder(arch)#1
-add wave -position insertpoint sim:/decoderbench/*
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+add wave -position insertpoint sim:/tbprocesseur/*
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-add wave -position insertpoint /decoderbench/dec1/loadType
-add wave -position insertpoint /decoderbench/dec1/branchType
-add wave -position insertpoint /decoderbench/dec1/jumpType
-add wave -position insertpoint /decoderbench/dec1/loadTypePrev
-add wave -position insertpoint /decoderbench/dec1/loadTypePrev2
-add wave -position insertpoint /decoderbench/dec1/prev_write_1
-add wave -position insertpoint /decoderbench/dec1/prev_write_2
-add wave -position insertpoint /decoderbench/dec1/bpT1E1
-add wave -position insertpoint /decoderbench/dec1/bpT1E2
-add wave -position insertpoint /decoderbench/dec1/bpT2E1
-add wave -position insertpoint /decoderbench/dec1/bpT2E2
 run
-# ** Failure: Simulation terminee
-#    Time: 370 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
-# Break in Process simulation at decoder_bench.vhd line 233
-add wave -position insertpoint /decoderbench/dec1/rs1
-add wave -position insertpoint /decoderbench/dec1/rs2
-add wave -position insertpoint /decoderbench/dec1/rd
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 70 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+add wave -position insertpoint sim:/tbprocesseur/proc1/*
 restart
 # ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
 run
-# ** Failure: Simulation terminee
-#    Time: 370 ns  Iteration: 0  Process: /decoderbench/simulation File: decoder_bench.vhd
-# Break in Process simulation at decoder_bench.vhd line 233
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 70 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+add wave -position 11  -autoscale 1 -format Literal -height 18
+# Missing signal name or pattern.
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 70 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+add wave -position insertpoint /tbprocesseur/proc1/U7/loadTypePrev
+add wave -position insertpoint /tbprocesseur/proc1/U7/loadTypePrev2
+add wave -position insertpoint /tbprocesseur/proc1/U7/bpT1E1
+add wave -position insertpoint /tbprocesseur/proc1/U7/bpT1E2
+restart
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 70 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+add wave -position insertpoint /tbprocesseur/proc1/U7/rs2
+restart
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 5 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /tbprocesseur/proc1/U1
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 70 ns  Iteration: 0  Instance: /tbprocesseur/proc1/U31
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 50 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+add wave -position insertpoint sim:/tbprocesseur/proc1/*
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 50 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbprocesseur/proc1/PCsel2'. 
+run
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 50 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbprocesseur/proc1/pc4'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbprocesseur/proc1/pc5'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbprocesseur/proc1/pc45'. 
+run
+# ** Fatal: (vsim-3421) Value 696322 is out of range 0 to 7.
+#    Time: 50 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 30 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 30 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 30 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 150 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 150 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading lib_vhdl.processeur(a)#1
+# Loading lib_vhdl.programme
+# Loading lib_vhdl.program_memory(a)#1
+# Loading lib_vhdl.inc(a)#1
+# Loading lib_vhdl.mux2(a)#1
+# Loading lib_vhdl.bascule32_com(a)#1
+# Loading lib_vhdl.decoder(arch)#1
+# Loading lib_vhdl.bascule32(a)#1
+# Loading lib_vhdl.bascule4(a)#1
+# Loading lib_vhdl.bascule1(a)#1
+# Loading lib_vhdl.bascule2(a)#1
+# Loading lib_vhdl.stype_sext(a)#1
+# Loading lib_vhdl.itype_sext(a)#1
+# Loading lib_vhdl.jtype_sext(a)#1
+# Loading lib_vhdl.utype_sext(a)#1
+# Loading lib_vhdl.btype_sext(a)#1
+# Loading lib_vhdl.regfile(a)#1
+# Loading lib_vhdl.mux3(a)#1
+# Loading lib_vhdl.mux4(a)#1
+# Loading lib_vhdl.alu(arch)#1
+# Loading lib_vhdl.adder(a)#1
+# Loading lib_vhdl.condtest(arch)#1
+# Loading lib_vhdl.memoire(a)#1
+# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
+run
+# ** Fatal: (vsim-3421) Value 8 is out of range 0 to 7.
+#    Time: 150 ns  Iteration: 1  Process: /tbprocesseur/proc1/U1/comb File: /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd
+# Fatal error in Process comb at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd line 33
+# 
+# HDL call sequence:
+# Stopped at /tp/xph2sei/xph2sei409/MiniProjet/vhd/program_memory.vhd 33 Process comb
+# 

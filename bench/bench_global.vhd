@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library lib_VHDL;
+use lib_VHDL.all;
+
+entity TbPROCESSEUR is
+end TbPROCESSEUR;
+
+architecture simulation of TbPROCESSEUR is
+
+  signal sigClk : std_logic := '0';
+  signal sigRst : std_logic := '0';
+
+  component PROCESSEUR
+    port (
+      clk : in std_logic;
+      rst : in std_logic);
+  end component;
+
+
+  
+
+  
+begin  -- simulation
+
+  proc1 : PROCESSEUR
+    port map (
+      clk => sigClk,
+      rst => sigRst);
+
+
+
+  sigClk <= not sigClk after 10 ns;
+
+  sigRst <= '1' after 5 ns;
+
+  
+  
+end simulation;

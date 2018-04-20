@@ -27,49 +27,60 @@ R2
 R3
 !s110 1522920097
 T_opt2
-!s110 1524067212
 VkBJ_z2D6XjJc7RzX0W9b=3
 04 12 4 work decoderbench arch 1
 =1-002564c7983b-5ad76b8b-dc2a8-58e6
 R1
 n@_opt2
 R2
-Edecoderbench
-Z4 w1524066527
-Z5 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
-Z6 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 R3
-Z7 8decoder_bench.vhd
-Z8 Fdecoder_bench.vhd
+!s110 1524067212
+T_opt3
+!s110 1524150683
+Vem>_R<L^Q664SOLhR8fc:1
+04 12 10 work tbprocesseur simulation 1
+=15-002564c7983b-5ad8b19b-963ba-b42
+R1
+n@_opt3
+R2
+Etbprocesseur
+Z4 w1524144532
+Z5 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R3
+Z8 8bench_global.vhd
+Z9 Fbench_global.vhd
 l0
-L28
-V0a<C^E?e:me=10GUWDJc72
-Z9 OL;C;10.2c;57
+L8
+VUK:=1`a5k2<LS>5I__zAN3
+Z10 OL;C;10.2c;57
 32
-Z10 !s110 1524067162
-Z11 !s108 1524067162.379603
-Z12 !s90 +acc|-work|lib_BENCH|decoder_bench.vhd|
-Z13 !s107 decoder_bench.vhd|
-Z14 o+acc -work lib_BENCH
-Z15 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
-!s100 [?>l82IfE7SWgLXTH_9P@1
+Z11 !s110 1524146528
+Z12 !s108 1524146528.291410
+Z13 !s90 +acc|-work|lib_BENCH|bench_global.vhd|
+Z14 !s107 bench_global.vhd|
+Z15 o+acc -work lib_BENCH
+Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 3DFPY;OKR8LRRBZi=Nf253
 !i10b 1
 !i111 0
-Aarch
+Asimulation
 R5
 R6
-DEx4 work 12 decoderbench 0 22 0a<C^E?e:me=10GUWDJc72
-l125
-L31
-V^ofT_XYiM4=Ro>iRzGI980
-R9
-32
+R7
+DEx4 work 12 tbprocesseur 0 22 UK:=1`a5k2<LS>5I__zAN3
+l26
+L11
+VJ>>MQ7:]o<IoF5[Fbm9]A3
 R10
+32
 R11
 R12
 R13
 R14
 R15
-!s100 UYOMJ0[MMkJV4GV5>`gI61
+R16
+!s100 jKVk2zMUC7b:K?68H3CNA3
 !i10b 1
 !i111 0

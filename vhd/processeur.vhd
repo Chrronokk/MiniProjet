@@ -93,46 +93,46 @@ architecture A of PROCESSEUR is
 
 
 
-component decoder is
+  component decoder is
 
-  port (code : in std_logic_vector (31 downto 0);
-        clk  : in std_logic;
-        rst  : in std_logic;
+    port (code : in std_logic_vector (31 downto 0);
+          clk  : in std_logic;
+          rst  : in std_logic;
 
-        --ALU control signals
-        aluSel : out std_logic_vector(3 downto 0);
-
-
-        --Regfile control signals
-        reqRead1 : inout std_logic;     -- Requests a read on regfile
-        reqRead2 : inout std_logic;     -- Requests a second read on regfile
-        reqWrite : inout std_logic;     -- Requests a write on regfile
-
-        selRegIn : out std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
-
-        --Memory control signals
-        mem_access : out std_logic;     -- Requests an access to the memory
-        memRW      : out std_logic;     -- 0 for Read / 1 for Write
-        memSize    : out std_logic_vector(1 downto 0);  -- Size of the memory access
-        memSign    : out std_logic;     -- 0 if unsigned, 1 if signed
+          --ALU control signals
+          aluSel : out std_logic_vector(3 downto 0);
 
 
-        --Unclassified control signals
-        aluE1Sel  : out std_logic;      -- Selects which signal enters E1
-        aluE2Sel  : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
-        JBsel     : out std_logic;
-        pcSel     : out std_logic;      --Defines how the next PC is calculated
-        jalr_Type : out std_logic;
+          --Regfile control signals
+          reqRead1 : inout std_logic;   -- Requests a read on regfile
+          reqRead2 : inout std_logic;   -- Requests a second read on regfile
+          reqWrite : inout std_logic;   -- Requests a write on regfile
 
-        bpE1 : out std_logic_vector(1 downto 0);
-        bpE2 : out std_logic_vector(1 downto 0);
+          selRegIn : out std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
+
+          --Memory control signals
+          mem_access : out std_logic;   -- Requests an access to the memory
+          memRW      : out std_logic;   -- 0 for Read / 1 for Write
+          memSize    : out std_logic_vector(1 downto 0);  -- Size of the memory access
+          memSign    : out std_logic;   -- 0 if unsigned, 1 if signed
 
 
-        bubbleReq   : inout std_logic;  --Requests a bubble generation for next cycle
-        panicBubble : inout std_logic := '0');
-  
+          --Unclassified control signals
+          aluE1Sel  : out std_logic;    -- Selects which signal enters E1
+          aluE2Sel  : out std_logic_vector(1 downto 0);  -- Selects which signal enters E2
+          JBsel     : out std_logic_vector(1 downto 0);
+          pcSel     : out std_logic;    --Defines how the next PC is calculated
+          jalr_Type : out std_logic;
 
-end component decoder;
+          bpE1 : out std_logic_vector(1 downto 0);
+          bpE2 : out std_logic_vector(1 downto 0);
+
+
+          bubbleReq   : inout std_logic;  --Requests a bubble generation for next cycle
+          panicBubble : inout std_logic := '0');
+
+
+  end component decoder;
 
 
 
@@ -255,7 +255,7 @@ end component decoder;
   component CondTest is
     port (
       aluLSB : in  std_logic;
-      JBsel  : in  std_logic;
+      JBsel  : in  std_logic_vector(1 downto 0);
       PCcom  : out std_logic);
   end component CondTest;
 
@@ -294,7 +294,8 @@ end component decoder;
   signal memSize                      : std_logic_vector(1 downto 0);
   signal aluE1Sel                     : std_logic;
   signal aluE2Sel                     : std_logic_vector(1 downto 0);
-  signal PCsel, JBsel                 : std_logic;
+  signal PCsel                        : std_logic;
+  signal JBsel                        : std_logic_vector(1 downto 0);
   signal bpE1, bpE2                   : std_logic_vector(1 downto 0);
   signal jalr_type                    : std_logic;
   signal selRegIn                     : std_logic_vector(1 downto 0);
@@ -315,7 +316,8 @@ end component decoder;
   signal s_imm, i_imm, u_imm, b_imm, j_imm : std_logic_vector(31 downto 0);
   signal Reg1, Reg2, R1, R2, E1, E2        : std_logic_vector(31 downto 0);
   signal aluOut                            : std_logic_vector(31 downto 0);
-  signal PCsel2, JBsel2, PCcom             : std_logic;
+  signal PCcom                             : std_logic;
+  signal JBsel2                            : std_logic_vector(1 downto 0);
   signal bpE12, bpE22                      : std_logic_vector(1 downto 0);
   signal jalr_type2                        : std_logic;
   signal jb_imm, jb_add, address_j         : std_logic_vector(31 downto 0);
@@ -326,7 +328,7 @@ end component decoder;
   --Memory
 
   signal instruction4                   : std_logic_vector(31 downto 0);
-  signal pc4, pc44                      : std_logic_vector(31 downto 0);
+  signal pc44                           : std_logic_vector(31 downto 0);
   signal selRegIn3                      : std_logic_vector(1 downto 0);
   signal mem_access3, memRW3, memSign3  : std_logic;
   signal memSize3                       : std_logic_vector(1 downto 0);
@@ -339,7 +341,6 @@ end component decoder;
   -- Writeback
 
   signal instruction5         : std_logic_vector(31 downto 0);
-  signal pc5, pc45            : std_logic_vector(31 downto 0);
   signal result2              : std_logic_vector(31 downto 0);
   signal reqWrite4, selRegIn4 : std_logic;
 
@@ -508,6 +509,12 @@ begin  -- architecture A
     input  => aluE1sel,
     output => aluE1sel2);
 
+  U60 : bascule2 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => aluE2sel,
+    output => aluE2sel2);
+
 
   U21 : bascule2 port map (
     clk    => clk,
@@ -529,7 +536,7 @@ begin  -- architecture A
     sel => panicBubble,
     s   => instruction22);
 
-  U24 : bascule1 port map (
+  U24 : bascule2 port map (
     clk    => clk,
     rst    => rst,
     input  => JBsel,
@@ -607,7 +614,7 @@ begin  -- architecture A
     b   => u_imm,
     c   => i_imm,
     d   => s_imm,
-    sel => aluE2Sel,
+    sel => aluE2Sel2,
     s   => E2);
 
 
@@ -620,7 +627,7 @@ begin  -- architecture A
   U37 : mux2 port map (
     a   => j_imm,
     b   => b_imm,
-    sel => JBsel2,
+    sel => JBsel2(1),
     s   => jb_imm);
 
   U38 : adder port map (
@@ -639,7 +646,7 @@ begin  -- architecture A
   U40 : mux2 port map (
     a   => pc41,
     b   => pc1,
-    sel => PCsel2,
+    sel => PCsel,
     s   => pc_temp);
 
   U41 : mux2 port map (
