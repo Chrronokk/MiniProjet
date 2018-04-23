@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2018-04-16
+-- Last update: 2018-04-20
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ begin  -- architecture A
   -- type   : sequential
   -- inputs : clk, rst
   -- outputs: 
-  regIO: process (clk, rst) is
+  regIO: process (RegSelRead1, RegSelRead2, clk, regArray, rst) is
   begin  -- process regIO
     if rst = '0' then  -- asynchronous reset (active low)
       dataOut1 <= zero;
@@ -73,7 +73,14 @@ begin  -- architecture A
       end loop;  -- I
       
     elsif clk'event and clk = '1' then  -- rising clock edge
-      if reqRead1='1' then
+      if reqWrite='1' and regSelWrite /= "00000" then 
+        regArray(to_integer(unsigned(regSelWrite))) <= dataIn;
+      else
+        regArray(to_integer(unsigned(regSelWrite))) <=  regArray(to_integer(unsigned(regSelWrite)));
+      end if;
+    end if;
+
+    if reqRead1='1' then
         dataOut1 <= regArray(to_integer(unsigned(RegSelRead1)));
       else
         dataOut1 <= zero;
@@ -83,12 +90,6 @@ begin  -- architecture A
       else
         dataOut2 <= zero;
       end if;
-      if reqWrite='1' and regSelWrite /= "00000" then 
-        regArray(to_integer(unsigned(regSelWrite))) <= dataIn;
-      else
-        regArray(to_integer(unsigned(regSelWrite))) <=  regArray(to_integer(unsigned(regSelWrite)));
-      end if;
-    end if;
   end process regIO;
 
   

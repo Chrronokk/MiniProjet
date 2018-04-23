@@ -21,7 +21,7 @@ begin  -- architecture A
   -- outputs: output
   combi : process (input) is
   begin  -- process combi
-    output              <= (others => '0');
+    output              <= (others => input(31));
     output(20 downto 1) <= input(31) & input(19 downto 12) & input(20) & input(30 downto 21);
   end process combi;
 

@@ -30,7 +30,7 @@ begin  -- architecture A
     if rst = '0' then
       instruction <= (others => '0');
     else
-      instruction <= prog(to_integer(unsigned(pc)));
+      instruction <= prog(to_integer(unsigned(pc)))&prog(to_integer(unsigned(pc))+1)&prog(to_integer(unsigned(pc))+2)&prog(to_integer(unsigned(pc))+3);
     end if;
 
   end process comb;

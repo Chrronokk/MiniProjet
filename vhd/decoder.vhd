@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-19
+-- Last update: 2018-04-23
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -220,7 +220,7 @@ begin  -- architecture str
             when "000" =>               --BEQ
               aluSel <= "1001";
             when "001" =>               --BNE
-              aluSel <= "1001";
+              aluSel <= "1111";
             when "100" =>               --BLT
               aluSel <= "1011";
             when "101" =>               --BGE
@@ -245,7 +245,7 @@ begin  -- architecture str
           jumpType  <= '1';
           jalr_type <= '1';
           aluSel    <= "1110";
-          aluE2Sel  <= "01";
+          aluE2Sel  <= "10";
           reqRead2  <= '0';
           selRegIn  <= "10";
         when "0110111" =>               --LUI
@@ -309,7 +309,7 @@ begin  -- architecture str
             when "100" =>               -- XORI
               aluSel <= "0101";
             when "101" =>
-              aluE2Sel <= "01";
+              aluE2Sel <= "10";
               if code(30) = '0' then    --SRLI
                 aluSel <= "0111";
               else                      --SRAI

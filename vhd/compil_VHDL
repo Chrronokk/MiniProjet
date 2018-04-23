@@ -22,6 +22,7 @@ vcom +acc -work lib_VHDL memory.vhd
 vcom +acc -work lib_VHDL mux2.vhd
 vcom +acc -work lib_VHDL mux3.vhd
 vcom +acc -work lib_VHDL mux4.vhd
+vcom +acc -work lib_VHDL or.vhd
 vcom +acc -work lib_VHDL package_memory.vhd
 vcom +acc -work lib_VHDL program_memory.vhd
 vcom +acc -work lib_VHDL register_file.vhd

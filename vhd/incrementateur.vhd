@@ -12,7 +12,7 @@ end entity inc;
 
 architecture A of inc is
 
-  constant inc : std_logic_vector(31 downto 0) := "00000000000000000000000000000001";  -- inc
+  constant inc : std_logic_vector(31 downto 0) := "00000000000000000000000000000100";  -- inc
 
 begin  -- architecture A
 

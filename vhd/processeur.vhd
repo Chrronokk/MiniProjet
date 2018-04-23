@@ -216,14 +216,21 @@ architecture A of PROCESSEUR is
   end component regFile;
 
 
-
-
-  component program_memory is
+  component program_memory
     port (
-      rst         : in  std_logic;      -- reset
-      pc          : in  std_logic_vector(31 downto 0);   -- ligne à lire
-      instruction : out std_logic_vector(31 downto 0));  -- code binaire de l'instruction
-  end component program_memory;
+      rst         : in  std_logic;
+      pc          : in  std_logic_vector(31 downto 0);
+      instruction : out std_logic_vector(31 downto 0));
+  end component;
+
+
+  component ou
+    port (
+      a, b : in  std_logic;
+      s    : out std_logic);
+  end component;
+
+
 
 
 
@@ -285,20 +292,20 @@ architecture A of PROCESSEUR is
 
   --Decode
 
-  signal instruction2, instruction22  : std_logic_vector(31 downto 0);
-  signal pc2, pc42                    : std_logic_vector(31 downto 0);
-  signal bubbleReq, panicBubble       : std_logic;
-  signal aluSel                       : std_logic_vector(3 downto 0);
-  signal reqRead1, reqRead2, reqWrite : std_logic;
-  signal mem_access, memRW, memSign   : std_logic;
-  signal memSize                      : std_logic_vector(1 downto 0);
-  signal aluE1Sel                     : std_logic;
-  signal aluE2Sel                     : std_logic_vector(1 downto 0);
-  signal PCsel                        : std_logic;
-  signal JBsel                        : std_logic_vector(1 downto 0);
-  signal bpE1, bpE2                   : std_logic_vector(1 downto 0);
-  signal jalr_type                    : std_logic;
-  signal selRegIn                     : std_logic_vector(1 downto 0);
+  signal instruction2, instruction22                          : std_logic_vector(31 downto 0);
+  signal pc2, pc42                                            : std_logic_vector(31 downto 0);
+  signal bubbleReq, panicBubble, bubbleReq2, bubbleReqDelayed : std_logic;
+  signal aluSel                                               : std_logic_vector(3 downto 0);
+  signal reqRead1, reqRead2, reqWrite                         : std_logic;
+  signal mem_access, memRW, memSign                           : std_logic;
+  signal memSize                                              : std_logic_vector(1 downto 0);
+  signal aluE1Sel                                             : std_logic;
+  signal aluE2Sel                                             : std_logic_vector(1 downto 0);
+  signal PCsel                                                : std_logic;
+  signal JBsel                                                : std_logic_vector(1 downto 0);
+  signal bpE1, bpE2                                           : std_logic_vector(1 downto 0);
+  signal jalr_type                                            : std_logic;
+  signal selRegIn                                             : std_logic_vector(1 downto 0);
 
 
 
@@ -359,11 +366,15 @@ begin  -- architecture A
     pc  => pc1,
     npc => pc41);
 
-
+ U62 : ou port map (
+   a => bubbleReq,
+   b => bubbleReq2,
+   s => bubbleReqDelayed);
+  
   U3 : mux2 port map (
     a   => instruction1,
     b   => nop,
-    sel => bubbleReq,
+    sel => bubbleReqDelayed,
     s   => instruction11);
 
 
@@ -547,7 +558,19 @@ begin  -- architecture A
     rst    => rst,
     input  => jalr_type,
     output => jalr_type2);
-  -- Execute
+
+
+  U61 : bascule1 port map (
+    clk    => clk,
+    rst    => rst,
+    input  => bubbleReq,
+    output => bubbleReq2);
+
+
+
+
+
+-- Execute
 
   U26 : Stype_sext port map (
     input  => instruction3,
@@ -591,7 +614,7 @@ begin  -- architecture A
     a   => Reg1,
     b   => result1,
     c   => result2,
-    sel => bpE1,
+    sel => bpE12,
     s   => R1);
 
 
@@ -599,7 +622,7 @@ begin  -- architecture A
     a   => Reg2,
     b   => result1,
     c   => result2,
-    sel => bpE2,
+    sel => bpE22,
     s   => R2);
 
   U34 : mux2 port map (
@@ -621,7 +644,7 @@ begin  -- architecture A
   U36 : ALU port map (
     a      => E1,
     b      => E2,
-    sel    => aluSel,
+    sel    => aluSel2,
     sortie => aluOut);
 
   U37 : mux2 port map (

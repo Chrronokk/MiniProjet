@@ -21,7 +21,7 @@ entity Itype_sext is
       -- outputs: output
       combi : process (input) is
       begin  -- process combi
-        output              <= (others => '0');
+        output              <= (others => input(31));
         output(31)          <= input(31);
         output(10 downto 0) <= input(30 downto 20);
       end process combi;
