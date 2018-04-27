@@ -36,51 +36,78 @@ R2
 R3
 !s110 1524067212
 T_opt3
-!s110 1524477991
 Vz4gW6SHAbiBbe>[7;L^lW0
-04 12 10 work tbprocesseur simulation 1
+Z4 04 12 10 work tbprocesseur simulation 1
 =30-bc305b9b28b6-5addb027-ace90-15b9
 R1
 n@_opt3
 R2
-Etbprocesseur
-Z4 w1524144532
-Z5 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
-Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
-Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
 R3
-Z8 8bench_global.vhd
-Z9 Fbench_global.vhd
+!s110 1524477991
+T_opt4
+VDngEQj08;B5zNiYm8LgRM3
+R4
+=3-002564c7982c-5ae1cb25-7fb6-11d4
+R1
+n@_opt4
+R2
+R3
+!s110 1524747045
+T_opt5
+!s110 1524847401
+V7RVJF@8d0PR5@2OKnG;9F3
+R4
+=6-002564c7983b-5ae35329-48a9c-2f5e
+R1
+n@_opt5
+R2
+T_opt6
+VfTaNKzb2[:X2V`f5fD0iD2
+R4
+=23-002564c7983b-5ae348f7-2afe7-20fb
+o-quiet -auto_acc_if_foreign -work lib_BENCH +acc
+n@_opt6
+R2
+R3
+!s110 1524844791
+Etbprocesseur
+Z5 w1524831090
+Z6 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+Z7 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z8 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R3
+Z9 8bench_global.vhd
+Z10 Fbench_global.vhd
 l0
 L8
 VUK:=1`a5k2<LS>5I__zAN3
-Z10 OL;C;10.2c;57
+Z11 OL;C;10.2c;57
 32
-Z11 !s110 1524467024
-Z12 !s108 1524467024.824426
-Z13 !s90 +acc|-work|lib_BENCH|bench_global.vhd|
-Z14 !s107 bench_global.vhd|
-Z15 o+acc -work lib_BENCH
-Z16 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+Z12 !s110 1524831098
+Z13 !s108 1524831098.635055
+Z14 !s90 +acc|-work|lib_BENCH|bench_global.vhd|
+Z15 !s107 bench_global.vhd|
+Z16 o+acc -work lib_BENCH
+Z17 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
 !s100 3DFPY;OKR8LRRBZi=Nf253
 !i10b 1
 !i111 0
 Asimulation
-R5
 R6
 R7
+R8
 DEx4 work 12 tbprocesseur 0 22 UK:=1`a5k2<LS>5I__zAN3
 l26
 L11
 VJ>>MQ7:]o<IoF5[Fbm9]A3
-R10
-32
 R11
+32
 R12
 R13
 R14
 R15
 R16
+R17
 !s100 jKVk2zMUC7b:K?68H3CNA3
 !i10b 1
 !i111 0

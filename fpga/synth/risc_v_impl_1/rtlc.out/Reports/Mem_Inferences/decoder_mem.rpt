@@ -1,0 +1,7 @@
+Inferred ROM
+------------
+  1. Instance: rtlc_new_reduced_rom_I2
+    File: /tp/xph2sei/xph2sei409/MiniProjet/fpga/synth/../../vhd/decoder.vhd , Net: rtlc_memSize_1n13ss1[1]
+    port 1  address width: 10
+    port 1  data width: 14
+

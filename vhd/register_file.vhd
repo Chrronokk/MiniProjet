@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-08
--- Last update: 2018-04-20
+-- Last update: 2018-04-26
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ begin  -- architecture A
   -- type   : sequential
   -- inputs : clk, rst
   -- outputs: 
-  regIO: process (RegSelRead1, RegSelRead2, clk, regArray, rst) is
+  regIO: process (RegSelRead1, RegSelRead2, clk, regArray, rst,reqRead1,reqRead2) is
   begin  -- process regIO
     if rst = '0' then  -- asynchronous reset (active low)
       dataOut1 <= zero;

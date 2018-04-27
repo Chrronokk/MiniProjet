@@ -1,0 +1,4 @@
+.work.bascule32_com.A .work.bascule32_com.A_unfold_2 
+.work.bascule32.A .work.bascule32.A_unfold_3 .work.bascule32.A_unfold_4 .work.bascule32.A_unfold_5 .work.bascule32.A_unfold_6 .work.bascule32.A_unfold_7 .work.bascule32.A_unfold_8 
+.work.mux3.A .work.mux3.A_unfold_1 .work.mux3.A_unfold_2 
+.work.mux2.A .work.mux2.A_unfold_5 .work.mux2.A_unfold_6 

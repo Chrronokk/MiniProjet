@@ -1,0 +1,297 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/tp/xph2sei/xph2sei409/MiniProjet/fpga/synth
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+V[1UW1<Dhg0:H6FT>oC>G?2
+Z1 04 10 1 work processeur a 1
+=1-002564c7982c-5ae1e8a4-68082-5519
+o-quiet -auto_acc_if_foreign -work lib_SYNTH
+n@_opt
+Z2 OL;O;10.2c;57
+Z3 d/tp/xph2sei/xph2sei409/MiniProjet/fpga/synth
+!s110 1524754597
+T_opt1
+!s110 1524754615
+V71^I@6cNbmYK;OLPWnc@Z2
+R1
+=1-002564c7982c-5ae1e8b6-c609-5525
+o-quiet -auto_acc_if_foreign -work lib_SYNTH +acc
+n@_opt1
+R2
+Ealu_0
+Z4 w1524752303
+Z5 DPx9 vital2000 12 vital_timing 0 22 4Obk6FzZz7P8i2>0<?dVb3
+Z6 DPx7 simprim 11 vcomponents 0 22 8O_3e6jZlmVG1KLDb4Q^E1
+Z7 DPx6 unisim 11 vcomponents 0 22 GSe5`g9<H?BhoL6KEg9iZ3
+Z8 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z9 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R3
+Z10 8risc_v_impl_1/risc_v.vhd
+Z11 Frisc_v_impl_1/risc_v.vhd
+l0
+L4657
+V6BBK@`VVlHPS7DGnKL3nV1
+Z12 OL;C;10.2c;57
+32
+Z13 !s110 1524754518
+Z14 !s108 1524754516.434219
+Z15 !s90 +acc|-work|lib_SYNTH|risc_v_impl_1/risc_v.vhd|
+Z16 !s107 risc_v_impl_1/risc_v.vhd|
+Z17 o+acc -work lib_SYNTH
+Z18 tOptimize_1164 0 Explicit 1 IgnoreVitalErrors 1 Show_VitalChecksWarnings 0
+!s100 jCdGJTo[KlFb9aHV64OBi0
+!i10b 1
+!i111 0
+Ainterface
+R5
+R6
+R7
+R8
+R9
+DEx4 work 5 alu_0 0 22 6BBK@`VVlHPS7DGnKL3nV1
+l5263
+L5164
+V8G1m7hXg5IC@gb2nQncLS2
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 mX?nc^Jo;9k><8i2]neDH3
+!i10b 1
+!i111 0
+Edecoder_0
+R4
+R5
+R6
+R7
+R8
+R9
+R3
+R10
+R11
+l0
+L1022
+VM:>N9Pi@kLX0jbaH1DJDZ1
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 B^Sdc9R;HKblg8?5e_aQ?0
+!i10b 1
+!i111 0
+Ainterface
+R5
+R6
+R7
+R8
+R9
+DEx4 work 9 decoder_0 0 22 M:>N9Pi@kLX0jbaH1DJDZ1
+l1095
+L1084
+V]@^_3[eNN7OgaJ_Zh83CH2
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 0oHEMigJ7EXVc6L>@8`XU3
+!i10b 1
+!i111 0
+Einc_30_0
+R4
+R5
+R6
+R7
+R8
+R9
+R3
+R10
+R11
+l0
+L816
+V75OKFW@IgiHJBd77KgjQm2
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 kS5ARmD];_b=m6?82[AQ73
+!i10b 1
+!i111 0
+Aimplementation
+R5
+R6
+R7
+R8
+R9
+DEx4 work 8 inc_30_0 0 22 75OKFW@IgiHJBd77KgjQm2
+l836
+L824
+V4^KdHDM^ch5`Zbm6Pi?142
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 7RmfNQ7aLa2cUZMdn3jII1
+!i10b 1
+!i111 0
+Eprocesseur
+R4
+R5
+R6
+R7
+R8
+R9
+R3
+R10
+R11
+l0
+L7812
+V;c7ZzONQo6[3T5]PCGhDo0
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 C[CGfQ3IoiRL`9FAb@42]1
+!i10b 1
+!i111 0
+Aa
+R5
+R6
+R7
+R8
+R9
+DEx4 work 10 processeur 0 22 ;c7ZzONQo6[3T5]PCGhDo0
+l9137
+L7819
+VM4bFB8KzeGnY]g>AHW_<E1
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 <:`bP]9NY3zYzWPZIMGoJ2
+!i10b 1
+!i111 0
+Eram_dq_32_0
+R4
+R5
+R6
+R7
+R8
+R9
+R3
+R10
+R11
+l0
+L16
+VBN:XTP^`Wo;A0E63<DoHQ3
+R12
+32
+R14
+R15
+R16
+R17
+R18
+!s100 k2Ah1Bg1bUlHi=C[BYfCV0
+!s110 1524754517
+!i10b 1
+!i111 0
+Aimplementation
+R5
+R6
+R7
+R8
+R9
+DEx4 work 11 ram_dq_32_0 0 22 BN:XTP^`Wo;A0E63<DoHQ3
+l97
+L64
+V8L[T5gjmmOf@fYCXOe1VX0
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 >HUJ0iR:cNb@D>Y=L`]ac3
+!i10b 1
+!i111 0
+Eregfile_0
+R4
+R5
+R6
+R7
+R8
+R9
+R3
+R10
+R11
+l0
+L1281
+V>JT3T>dMR41`DMSMfi@PP2
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 ajjB^Z6[h>geFXGGo4VOU3
+!i10b 1
+!i111 0
+Ainterface
+R5
+R6
+R7
+R8
+R9
+DEx4 work 9 regfile_0 0 22 >JT3T>dMR41`DMSMfi@PP2
+l1824
+L1747
+VoGcAOZTi7L:4N6>D^dR2C1
+R12
+32
+R13
+R14
+R15
+R16
+R17
+R18
+!s100 zzUWoMiS?RTGzQ[m`B9@a2
+!i10b 1
+!i111 0

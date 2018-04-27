@@ -1,0 +1,14 @@
+Inferred RAM
+------------
+  1. Instance: rtlc_new_ram_I4
+    File: /tp/xph2sei/xph2sei409/MiniProjet/fpga/synth/../../vhd/register_file.vhd , Net: regArray, Type: single port
+    port 1  read-write
+    port 1  address width: 5
+    port 1  data width: 32
+    port 2  read
+    port 2  address width: 5
+    port 2  data width: 32
+    port 3  read
+    port 3  address width: 5
+    port 3  data width: 32
+

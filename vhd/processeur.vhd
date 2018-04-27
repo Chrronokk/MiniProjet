@@ -6,8 +6,9 @@ use IEEE.NUMERIC_STD.all;
 entity PROCESSEUR is
 
   port (
-    CLK : in std_logic;                 -- CLOCK
-    RST : in std_logic);                -- RESET7
+    CLK     : in    std_logic;                       -- CLOCK
+    RST     : in    std_logic;
+    result2 : inout std_logic_vector(31 downto 0));  
 
 end entity PROCESSEUR;
 
@@ -17,6 +18,7 @@ end entity PROCESSEUR;
 architecture A of PROCESSEUR is
 
   constant nop : std_logic_vector(31 downto 0) := (others => '0');
+  constant un  : std_logic                     := '1';
 
 
   component ALU is
@@ -282,6 +284,9 @@ architecture A of PROCESSEUR is
 
 
 
+
+
+
 --signaux internes
 
 
@@ -301,7 +306,7 @@ architecture A of PROCESSEUR is
   signal memSize                                              : std_logic_vector(1 downto 0);
   signal aluE1Sel                                             : std_logic;
   signal aluE2Sel                                             : std_logic_vector(1 downto 0);
-  signal PCsel                                                : std_logic;
+  signal PCsel, PCsel2                                        : std_logic;
   signal JBsel                                                : std_logic_vector(1 downto 0);
   signal bpE1, bpE2                                           : std_logic_vector(1 downto 0);
   signal jalr_type                                            : std_logic;
@@ -347,9 +352,8 @@ architecture A of PROCESSEUR is
 
   -- Writeback
 
-  signal instruction5         : std_logic_vector(31 downto 0);
-  signal result2              : std_logic_vector(31 downto 0);
-  signal reqWrite4, selRegIn4 : std_logic;
+  signal instruction5 : std_logic_vector(31 downto 0);
+  signal reqWrite4    : std_logic;
 
 begin  -- architecture A
 
@@ -366,11 +370,11 @@ begin  -- architecture A
     pc  => pc1,
     npc => pc41);
 
- U62 : ou port map (
-   a => bubbleReq,
-   b => bubbleReq2,
-   s => bubbleReqDelayed);
-  
+  U62 : ou port map (
+    a => bubbleReq,
+    b => bubbleReq2,
+    s => bubbleReqDelayed);
+
   U3 : mux2 port map (
     a   => instruction1,
     b   => nop,
@@ -570,6 +574,12 @@ begin  -- architecture A
 
 
 
+
+
+
+
+
+
 -- Execute
 
   U26 : Stype_sext port map (
@@ -665,12 +675,18 @@ begin  -- architecture A
     sel => jalr_type2,
     s   => address_j);
 
+  U63 : ou port map (
+    a => pcSel,
+    b => bubbleReqDelayed,
+    s => pcSel2);
+
 
   U40 : mux2 port map (
     a   => pc41,
     b   => pc1,
-    sel => PCsel,
+    sel => PCsel2,
     s   => pc_temp);
+
 
   U41 : mux2 port map (
     a   => pc_temp,
@@ -757,7 +773,24 @@ begin  -- architecture A
     output => selRegIn3);
 
 
-  -- Memory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Memory
 
   U54 : memoire port map (
     rst        => rst,
@@ -794,11 +827,6 @@ begin  -- architecture A
 
 
 
-  U58 : bascule1 port map (
-    clk    => clk,
-    rst    => rst,
-    input  => reqWrite2,
-    output => reqWrite3);
 
 
 

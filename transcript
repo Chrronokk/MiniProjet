@@ -7,16 +7,120 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim lib_BENCH.decoderbench
-# vsim lib_BENCH.decoderbench 
+vsim lib_BENCH.tbprocesseur
+# vsim lib_BENCH.tbprocesseur 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: [1] risc_v_impl_1/risc_v.vhd(9161): (vopt-3473) Component instance "/TbPROCESSEUR/proc1/U1 : program_memory" is not bound.
+# ** Warning: [1] risc_v_impl_1/risc_v.vhd(9202): (vopt-3473) Component instance "/TbPROCESSEUR/proc1/U54 : memoire" is not bound.
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.decoderbench(arch)#1
-# Loading lib_vhdl.decoder(arch)#1
-add wave -position insertpoint sim:/decoderbench/*
-# ** Warning: (vsim-WLF-5022) WLF summary optimizations disabled.  This will adversely affect wave draw performance.
-run
-# ** Failure: Simulation terminee
-#    Time: 330 ns  Iteration: 0  Process: /decoderbench/simulation File: /tp/xph2sei/xph2sei409/MiniProjet/bench/decoder_bench.vhd
-# Break in Process simulation at /tp/xph2sei/xph2sei409/MiniProjet/bench/decoder_bench.vhd line 232
+# Loading ieee.numeric_std(body)
+# Loading work.tbprocesseur(simulation)#1
+# Loading unisim.vcomponents
+# Loading vital2000.vital_timing(body)
+# Loading simprim.vcomponents
+# Loading lib_synth.processeur(a)#1
+# ** Warning: (vsim-3473) Component instance "U1 : program_memory" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tbprocesseur/proc1 File: /tp/xph2sei/xph2sei409/MiniProjet/fpga/synth/risc_v_impl_1/risc_v.vhd
+# ** Warning: (vsim-3473) Component instance "U54 : memoire" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tbprocesseur/proc1 File: /tp/xph2sei/xph2sei409/MiniProjet/fpga/synth/risc_v_impl_1/risc_v.vhd
+# Loading lib_synth.ram_dq_32_0(implementation)#1
+# Loading unisim.gnd(gnd_v)#1
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading unisim.vpkg(body)
+# ** Warning: (vsim-3479) Time unit 'ps' is less than the simulator resolution (1ns).
+#    Time: 0 ns  Iteration: 0  Instance: /tbprocesseur/proc1/regArray/ix46040z34092
+# Loading unisim.lut6(lut6_v)#1
+# Loading unisim.lut5(lut5_v)#1
+# Loading unisim.vcc(vcc_v)#1
+# Loading unisim.ramb18e1(ramb18e1_v)#1
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading ieee.std_logic_textio(body)
+# Loading unisim.rb18_internal_vhdl(rb18_internal_vhdl_v)#2
+# Loading unisim.fdre(fdre_v)#1
+# Loading unisim.fdce(fdce_v)#1
+# Loading lib_synth.inc_30_0(implementation)#1
+# Loading unisim.xorcy(xorcy_v)#1
+# Loading unisim.lut1(lut1_v)#1
+# Loading unisim.muxcy(muxcy_v)#1
+# Loading unisim.obuf(obuf_v)#1
+# Loading unisim.ibuf(ibuf_v)#1
+# Loading unisim.fdce(fdce_v)#2
+# Loading unisim.inv(inv_v)#1
+# Loading unisim.lut3(lut3_v)#1
+# Loading unisim.lut2(lut2_v)#1
+# Loading unisim.lut4(lut4_v)#1
+# Loading lib_synth.decoder_0(interface)#1
+# Loading lib_synth.regfile_0(interface)#1
+# Loading unisim.fdpe(fdpe_v)#1
+# Loading lib_synth.alu_0(interface)#1
+# Loading unisim.bufgp(bufgp_v)#1
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(31) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(30) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(29) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(28) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(27) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(26) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(25) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(24) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(23) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(22) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(21) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(20) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(19) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(18) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(17) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(16) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(15) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(14) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(13) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(12) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(11) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(10) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(9) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(8) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(7) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(6) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(5) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(4) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(3) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(2) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(1) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/regArray/rd_data1(0) has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tbprocesseur/proc1/U2_npc_inc30_0/cout has no driver.
+# This port will contribute value (U) to the signal network.

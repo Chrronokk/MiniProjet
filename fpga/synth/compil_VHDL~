@@ -1,0 +1,32 @@
+
+vdel -lib  ${TP_PATH}/libs/lib_VHDL -all
+
+vlib ${TP_PATH}/libs/lib_VHDL
+
+vmap lib_VHDL ${TP_PATH}/libs/lib_VHDL 
+
+vcom +acc -work lib_VHDL adder.vhd 
+vcom +acc -work lib_VHDL ALU.vhd
+vcom +acc -work lib_VHDL bascule1.vhd
+vcom +acc -work lib_VHDL bascule2.vhd
+vcom +acc -work lib_VHDL bascule4.vhd
+vcom +acc -work lib_VHDL bascule32.vhd
+vcom +acc -work lib_VHDL bascule32_com.vhd
+vcom +acc -work lib_VHDL branch_cond.vhd
+vcom +acc -work lib_VHDL Btype_sext.vhd
+vcom +acc -work lib_VHDL decoder.vhd
+vcom +acc -work lib_VHDL incrementateur.vhd
+vcom +acc -work lib_VHDL Itype_sext.vhd
+vcom +acc -work lib_VHDL Jtype_sext.vhd
+vcom +acc -work lib_VHDL memory.vhd
+vcom +acc -work lib_VHDL mux2.vhd
+vcom +acc -work lib_VHDL mux3.vhd
+vcom +acc -work lib_VHDL mux4.vhd
+vcom +acc -work lib_VHDL or.vhd
+vcom +acc -work lib_VHDL package_memory.vhd
+vcom +acc -work lib_VHDL program_memory.vhd
+vcom +acc -work lib_VHDL register_file.vhd
+vcom +acc -work lib_VHDL Stype_sext.vhd
+vcom +acc -work lib_VHDL Utype_sext.vhd
+vcom +acc -work lib_VHDL processeur.vhd
+

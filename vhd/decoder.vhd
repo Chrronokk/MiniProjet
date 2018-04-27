@@ -6,7 +6,7 @@
 -- Author     :   <antoine@localhost>
 -- Company    : 
 -- Created    : 2018-03-01
--- Last update: 2018-04-23
+-- Last update: 2018-04-27
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ entity decoder is
 
 
 
-        
+
         selRegIn : out std_logic_vector(1 downto 0);  -- Selects which signal writes into the regfile
 
         --Memory control signals
@@ -91,8 +91,6 @@ architecture arch of decoder is
   signal loadTypePrev  : std_logic;
   signal loadTypePrev2 : std_logic;
 
-  signal bpT2E1next : std_logic;
-  signal bpT2E2next : std_logic;
   signal branchType : std_logic;
   signal jumpType   : std_logic;
 
@@ -103,6 +101,8 @@ architecture arch of decoder is
   signal bpT1E2 : std_logic;            -- Bypass T+1 E2 enable
   signal bpT2E1 : std_logic;            -- Bypass T+2 E1 enable
   signal bpT2E2 : std_logic;            -- Bypass T+2 E2 enable
+
+  signal test : std_logic := '0';
 
 begin  -- architecture str
 
@@ -142,10 +142,13 @@ begin  -- architecture str
 
 
 
-  decode : process(branchType, bubbleReq, code, func3, jumpType, loadTypePrev2,
-                   opcode, panicBubble, prev_write_2, rs1, rs2) is  --Process combinatoire de décodage
+  decode : process(branchType, bubbleReq, code, func3, jumpType, loadTypePrev,
+                   opcode, panicBubble, prev_write_1, rs1, rs2) is  --Process combinatoire de décodage
+
 
   begin
+
+    test <= '0';
 
     --Default signal values
     --Internal
@@ -185,6 +188,8 @@ begin  -- architecture str
 
 
 
+
+
     if loadTypePrev = '1' and rs1 = prev_write_1 then
       panicBubble <= '1';
     elsif loadTypePrev = '1' and rs2 = prev_write_1 then
@@ -208,14 +213,16 @@ begin  -- architecture str
       aluE1Sel <= '1';
       aluE2Sel <= "10";
 
+
       
     else
       case opcode is
-
+        
         when "1100011" =>               --Branch type
           reqWrite   <= '0';
           branchType <= '1';
           JBsel      <= "10";
+          pcSel      <= '1';
           case func3 is
             when "000" =>               --BEQ
               aluSel <= "1001";
@@ -234,25 +241,28 @@ begin  -- architecture str
           end case;
           
         when "1101111" =>               --JAL
-          JBsel      <= "01";
+          JBsel    <= "01";
           jumpType <= '1';
           aluSel   <= "0000";
           reqRead1 <= '0';
           reqRead2 <= '0';
           selRegIn <= "10";
+          
         when "1100111" =>               --JALR
-          JBsel      <= "01";
+          JBsel     <= "01";
           jumpType  <= '1';
           jalr_type <= '1';
           aluSel    <= "1110";
           aluE2Sel  <= "10";
           reqRead2  <= '0';
           selRegIn  <= "10";
+          
         when "0110111" =>               --LUI
           aluSel   <= "0000";
           reqRead1 <= '0';
           reqRead2 <= '0';
           aluE2Sel <= "01";
+          
         when "0010111" =>               --AUIPC
           reqRead1 <= '0';
           reqRead2 <= '0';
@@ -323,12 +333,16 @@ begin  -- architecture str
             when others =>
               null;
           end case;
+          
         when "0110011" =>               --Register type
+                test     <= '1';
+
           case func3 is
             when "000" =>
               if code(30) = '0' then    --ADD
-                else                    --SUB
-                     aluSel <= "0010";
+                null;
+              else                      --SUB
+                aluSel <= "0010";
               end if;
             when "001" =>               --SLL
               aluSel <= "0110";
@@ -369,9 +383,9 @@ begin  -- architecture str
   updateSeq : process (clk, rst) is
   begin  -- process updateSeq
     if rst = '0' then                   -- asynchronous reset (active low)
-      prev_write_1 <= "00000";
-      prev_write_2 <= "00000";
-      loadTypePrev <= '0';
+      prev_write_1  <= "00000";
+      prev_write_2  <= "00000";
+      loadTypePrev  <= '0';
       loadTypePrev2 <= '0';
 
 

@@ -1,0 +1,7 @@
+vdel -lib  ${TP_PATH}/libs/lib_FPGA -all
+
+vlib ${TP_PATH}/libs/lib_FPGA
+
+vmap lib_FPGA ${TP_PATH}/libs/lib_FPGA 
+
+vcom +acc -work lib_FPGA synth/risc_v_impl_1/risc_v.vhd 

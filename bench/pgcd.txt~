@@ -1,0 +1,19 @@
+a->r1
+b->r2
+tels que a>b
+
+
+
+
+
+division:
+r1-r2->r3
+BEQ r3,r0,finAlgo
+BRGE r3,r0 division
+
+a=b
+b=r
+
+JAL division
+
+

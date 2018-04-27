@@ -23,6 +23,7 @@ begin  -- architecture A
   begin  -- process combi
     output              <= (others => input(31));
     output(20 downto 1) <= input(31) & input(19 downto 12) & input(20) & input(30 downto 21);
+    output(0) <= '0';
   end process combi;
 
 end architecture A;

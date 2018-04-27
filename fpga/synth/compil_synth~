@@ -1,0 +1,9 @@
+vdel -lib  ${TP_PATH}/libs/lib_SYNTH -all
+
+vlib ${TP_PATH}/libs/lib_SYNTH
+
+vmap lib_SYNTH ${TP_PATH}/libs/lib_SYNTH 
+
+vcom +acc -work lib_SYNTH synth/risc_v_impl_1/risc_v.vhd 
+
+
